@@ -22,34 +22,21 @@ const Hero: React.FC = () => {
       <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col items-center justify-center min-h-screen text-center">
         {/* Title */}
         <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
-          <span
-            className="inline-block transform -rotate-2"
-            style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.4)' }}
-          >
+          <span className="inline-block transform -rotate-2 bg-white text-black px-4 py-1 rounded-md shadow-lg">
             Strong Bodies.
           </span>
           <br />
-          <span
-            className="inline-block transform rotate-1"
-            style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.4)' }}
-          >
+          <span className="inline-block transform rotate-1 bg-[#11A663] text-white px-4 py-1 rounded-md shadow-lg">
             Smart Habits.
           </span>
           <br />
-          <span
-            className="inline-block transform -rotate-1"
-            style={{ textShadow: '2px 2px 6px rgba(0,0,0,0.4)' }}
-          >
+          <span className="inline-block transform -rotate-1 bg-[#FFB866] text-black px-4 py-1 rounded-md shadow-lg">
             Happy Kids!
           </span>
         </h1>
 
-        {/* Row of Lotties with shared background */}
+        {/* Row of Lotties */}
         <div className="relative mb-10 inline-block rounded-2xl overflow-hidden">
-          {/* Shared background container */}
-          <div className="absolute inset-0 bg- rounded-2xl backdrop-blur-md shadow-lg" />
-
-          {/* Lotties row */}
           <div className="relative flex gap-6 p-5">
             <div className="w-20 h-20 flex items-center justify-center animate-float-slow">
               <DotLottieReact
@@ -58,7 +45,6 @@ const Hero: React.FC = () => {
                 autoplay
               />
             </div>
-
             <div className="w-20 h-20 flex items-center justify-center animate-float-med">
               <DotLottieReact
                 src="https://lottie.host/d9f82825-e7cf-404d-9b10-e71bf9539905/FiNgFx9WPq.lottie"
@@ -66,7 +52,6 @@ const Hero: React.FC = () => {
                 autoplay
               />
             </div>
-
             <div className="w-20 h-20 flex items-center justify-center animate-float-fast">
               <DotLottieReact
                 src="https://lottie.host/c7c062dc-324a-4365-978d-1df5d306912f/kQM1Ri4cNt.lottie"
@@ -74,7 +59,6 @@ const Hero: React.FC = () => {
                 autoplay
               />
             </div>
-
             <div className="w-20 h-20 flex items-center justify-center animate-float-slow">
               <DotLottieReact
                 src="https://lottie.host/34c8828b-900e-4039-b83d-973473141055/Vb5htTnYgD.lottie"
@@ -99,7 +83,6 @@ const Hero: React.FC = () => {
             <Zap className="w-6 h-6 group-hover:animate-pulse text-white" />
             Start Your Plan 💪
           </button>
-
           <button
             onClick={() => scrollToSection('videos')}
             className="group bg-white text-black px-8 py-4 rounded-full font-bold text-lg shadow-lg border-2 border-[#11A663] transform hover:scale-105 transition-all duration-300 flex items-center gap-3"
