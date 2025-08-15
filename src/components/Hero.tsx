@@ -22,11 +22,11 @@ const Hero: React.FC = () => {
       <div className="relative z-10 container mx-auto px-6 py-20 flex flex-col items-center justify-center min-h-screen text-center">
         {/* Title */}
         <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
-          <span className="inline-block transform -rotate-2 bg-white text-black px-4 py-1 rounded-md shadow-lg">
+          <span className="inline-block transform -rotate-2 bg-[#348EE3] text-white px-4 py-1 rounded-md shadow-lg">
             Strong Bodies.
           </span>
           <br />
-          <span className="inline-block transform rotate-1 bg-[#11A663] text-white px-4 py-1 rounded-md shadow-lg">
+          <span className="inline-block transform rotate-1 bg-[#2BAD73] text-white px-4 py-1 rounded-md shadow-lg">
             Smart Habits.
           </span>
           <br />
