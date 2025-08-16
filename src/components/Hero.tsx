@@ -1,7 +1,7 @@
 import React from 'react';
 import { Play, Zap } from 'lucide-react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import heroBg from './images/ChatGPT Image Aug 16, 2025, 08_08_47 AM.png'; // 👈 import local image
+import heroBg from './images/ChatGPT Image Aug 16, 2025, 08_25_56 AM.png'; // 👈 import local image
 
 const Hero: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
