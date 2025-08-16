@@ -6,11 +6,9 @@ import heroTitle from "./images/3d balloon.png"; // 👈 title image as bg
 const Hero: React.FC = () => {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-start text-center overflow-hidden font-['Baloo_2']"
+      className="relative min-h-screen flex flex-col items-center justify-start text-center overflow-hidden font-['Baloo_2'] hero-section"
       style={{
         backgroundImage: `url(${heroTitle}), url(${bgImage})`, // 👈 stacked bg images
-        backgroundSize: "40%, cover",
-        backgroundPosition: "center top -80px, center", // 👈 Adjusted title image to move up by 50px
         backgroundRepeat: "no-repeat, no-repeat",
       }}
     >
@@ -39,6 +37,7 @@ const Hero: React.FC = () => {
         loop
         autoplay
       />
+
       {/* Bottom Section (Subtitle + Buttons) */}
       <div className="absolute bottom-12 w-full flex flex-col items-center px-4">
         <p className="text-lg md:text-xl max-w-2xl text-white drop-shadow-md mb-6">
@@ -53,6 +52,7 @@ const Hero: React.FC = () => {
           </button>
         </div>
       </div>
+
       {/* Floating Animation */}
       <style jsx>{`
         @keyframes float-slow {
@@ -97,10 +97,33 @@ const Hero: React.FC = () => {
         .animate-float-fast {
           animation: float-fast 3s ease-in-out infinite;
         }
-        /* Responsive title image size */
+        /* Hero Section Background Sizes for Different Screens */
+        .hero-section {
+          background-size: 100%, cover; /* Mobile - even larger title */
+          background-position: center center, center; /* Mobile - center title both horizontally and vertically */
+        }
+        
+        /* Tablet */
+        @media (min-width: 640px) {
+          .hero-section {
+            background-size: 50%, cover;
+            background-position: center top -60px, center; /* Tablet - slight upward adjustment */
+          }
+        }
+        
+        /* Desktop */
         @media (min-width: 768px) {
-          section {
-            background-size: 25%, cover;
+          .hero-section {
+            background-size: 40%, cover; /* Original desktop size */
+            background-position: center top -80px, center; /* Original desktop position */
+          }
+        }
+        
+        /* Large Desktop */
+        @media (min-width: 1024px) {
+          .hero-section {
+            background-size: 35%, cover;
+            background-position: center top -80px, center;
           }
         }
       `}</style>
