@@ -200,7 +200,7 @@ const ProgramsSection: React.FC = () => {
             <ul className="space-y-4 mb-8">
               <li className="flex items-center gap-3">
                 <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                <span className="text-black">Includes everything in Plan 2</span>
+                <span className="text-black">Personal Training</span>
               </li>
               <li className="flex items-center gap-3">
                 <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
