@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Users, Play, BookOpen } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 
 const PlansSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,27 +37,30 @@ const PlansSection: React.FC = () => {
       title: 'Parent & Kid Plans',
       description: 'Shared goals, workouts & meal ideas',
       features: 'Includes habit trackers + printable fun sheets',
-      color: 'brand-green',
       particles: ['🏃', '🥗', '💪'],
       buttonColor: 'bg-brand-green-500 hover:bg-brand-green-400',
+      price: 10500,
+      discount: 8500,
     },
     {
       emoji: '🧍',
       title: 'Group Sessions for Kids',
       description: 'Dance, yoga, fitness games',
       features: 'Ages 5–8, 9–12, and teens • Weekly schedule',
-      color: 'brand-green',
       particles: ['🕺', '🤸', '🎯'],
       buttonColor: 'bg-brand-green-500 hover:bg-brand-green-400',
+      price: 14500,
+      discount: 11500,
     },
     {
       emoji: '🧠',
       title: 'On-Demand Video Sessions',
       description: 'Nutrition & fitness videos',
       features: 'Watch anytime on YouTube',
-      color: 'black',
       particles: ['📹', '🥦', '🏋️'],
       buttonColor: 'bg-black hover:bg-gray-800',
+      price: 22000,
+      discount: 18000,
     }
   ];
 
@@ -113,7 +116,7 @@ const PlansSection: React.FC = () => {
               key={index}
               className={`bg-gray-50 border border-gray-200 rounded-3xl p-8 shadow-xl transition-all duration-500 relative overflow-hidden group
                 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-                hover:shadow-2xl hover:scale-[1.02]`}
+                hover:shadow-2xl hover:scale-[1.02] flex flex-col h-full`}  // 👈 flex + h-full
               style={{ animationDelay: `${index * 200}ms` }}
               onMouseEnter={() => {
                 setHoveredPlan(index);
@@ -144,7 +147,7 @@ const PlansSection: React.FC = () => {
               ))}
 
               <div className="text-center mb-6 relative">
-                <div className={`bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg relative group-hover:animate-pulse transition-all duration-300 group-hover:scale-125`}>
+                <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg relative group-hover:animate-pulse transition-all duration-300 group-hover:scale-125">
                   <span className="text-4xl group-hover:scale-110 transition-transform duration-300">
                     {plan.emoji}
                   </span>
@@ -159,12 +162,19 @@ const PlansSection: React.FC = () => {
                 <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                   {plan.features}
                 </p>
+
+                {/* Pricing */}
+                <div className="mt-6 mb-4">
+                  <p className="text-gray-500 line-through text-lg">₹{plan.price.toLocaleString()}</p>
+                  <p className="text-2xl font-extrabold text-brand-green-600">₹{plan.discount.toLocaleString()}</p>
+                </div>
               </div>
 
+              {/* CTA Button pinned bottom */}
               <button
-                className={`w-full ${plan.buttonColor} text-white py-4 rounded-2xl font-bold text-lg transform transition-all duration-300 hover:scale-105 relative overflow-hidden`}
+                className={`mt-auto w-full ${plan.buttonColor} text-white py-4 rounded-2xl font-bold text-lg transform transition-all duration-300 hover:scale-105 relative overflow-hidden`}
               >
-                <span className="relative z-10">Learn More</span>
+                <span className="relative z-10">Get Plan</span>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-0" />
               </button>
             </div>
