@@ -13,21 +13,23 @@ const PlansSection: React.FC = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          setTimeout(() => setIsVisible(true), 100);
           if (sectionRef.current) observer.unobserve(sectionRef.current);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.2, rootMargin: '50px' }
     );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
+    const currentRef = sectionRef.current;
+    if (currentRef) observer.observe(currentRef);
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     setMousePosition({
       x: e.clientX - rect.left,
-      y: e.clientY - rect.top
+      y: e.clientY - rect.top,
     });
   };
 
@@ -43,7 +45,7 @@ const PlansSection: React.FC = () => {
       discount: 8500,
     },
     {
-      emoji: '🧍',
+      emoji: '👯', // Changed to dancing people for group activity emphasis
       title: 'Group Sessions for Kids',
       description: 'Dance, yoga, fitness games',
       features: 'Ages 5–8, 9–12, and teens • Weekly schedule',
@@ -61,15 +63,16 @@ const PlansSection: React.FC = () => {
       buttonColor: 'bg-black hover:bg-gray-800',
       price: 22000,
       discount: 18000,
-    }
+    },
   ];
 
   return (
-    <section 
-      ref={sectionRef} 
-      id="plans" 
+    <section
+      ref={sectionRef}
+      id="plans"
       className="py-20 bg-white relative overflow-hidden"
       onMouseMove={handleMouseMove}
+      aria-labelledby="plans-heading"
     >
       {/* Floating background dots */}
       <div className="absolute inset-0 overflow-hidden">
@@ -81,8 +84,9 @@ const PlansSection: React.FC = () => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
+              animationDuration: `${3 + Math.random() * 4}s`,
             }}
+            aria-hidden="true"
           />
         ))}
       </div>
@@ -96,13 +100,18 @@ const PlansSection: React.FC = () => {
           width: '100px',
           height: '100px',
           background: 'radial-gradient(circle, rgba(74, 222, 128, 0.3) 0%, transparent 70%)',
-          borderRadius: '50%'
+          borderRadius: '50%',
         }}
+        aria-hidden="true"
       />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-black">
+        <div
+          className={`text-center mb-16 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <h2 id="plans-heading" className="text-4xl md:text-5xl font-black mb-6 text-black">
             Our <span className="text-brand-green-500">Plans</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -110,13 +119,13 @@ const PlansSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto" role="list">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`bg-gray-50 border border-gray-200 rounded-3xl p-8 shadow-xl transition-all duration-500 relative overflow-hidden group
-                ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-                hover:shadow-2xl hover:scale-[1.02] flex flex-col h-full`}  // 👈 flex + h-full
+              className={`bg-gray-50 border border-gray-200 rounded-3xl p-8 shadow-xl transition-all duration-500 relative overflow-hidden group hover:shadow-2xl hover:scale-[1.02] flex flex-col h-full ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
               style={{ animationDelay: `${index * 200}ms` }}
               onMouseEnter={() => {
                 setHoveredPlan(index);
@@ -126,29 +135,36 @@ const PlansSection: React.FC = () => {
                 setHoveredPlan(null);
                 setActivePlan(null);
               }}
+              role="listitem"
+              aria-label={plan.title}
             >
               {/* Animated background glow */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-0" />
 
               {/* Floating particles on hover */}
-              {hoveredPlan === index && plan.particles.map((particle, pIndex) => (
-                <div
-                  key={pIndex}
-                  className="absolute animate-bounce opacity-70"
-                  style={{
-                    left: `${Math.random() * 80}%`,
-                    top: `${Math.random() * 40}%`,
-                    animationDelay: `${pIndex * 200}ms`,
-                    fontSize: '1.2rem'
-                  }}
-                >
-                  {particle}
-                </div>
-              ))}
+              {hoveredPlan === index &&
+                plan.particles.map((particle, pIndex) => (
+                  <div
+                    key={pIndex}
+                    className="absolute animate-bounce opacity-70"
+                    style={{
+                      left: `${Math.random() * 80}%`,
+                      top: `${Math.random() * 40}%`,
+                      animationDelay: `${pIndex * 200}ms`,
+                      fontSize: '1.2rem',
+                    }}
+                    aria-hidden="true"
+                  >
+                    {particle}
+                  </div>
+                ))}
 
               <div className="text-center mb-6 relative">
                 <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg relative group-hover:animate-pulse transition-all duration-300 group-hover:scale-125">
-                  <span className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                  <span
+                    className="text-4xl group-hover:scale-110 transition-transform duration-300"
+                    aria-label={`${plan.title} icon`}
+                  >
                     {plan.emoji}
                   </span>
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30 group-hover:animate-ping" />
@@ -165,14 +181,22 @@ const PlansSection: React.FC = () => {
 
                 {/* Pricing */}
                 <div className="mt-6 mb-4">
-                  <p className="text-gray-500 line-through text-lg">₹{plan.price.toLocaleString()}</p>
-                  <p className="text-2xl font-extrabold text-brand-green-600">₹{plan.discount.toLocaleString()}</p>
+                  <p className="text-gray-500 line-through text-lg" aria-label={`Original price ${plan.price.toLocaleString()} rupees`}>
+                    ₹{plan.price.toLocaleString()}
+                  </p>
+                  <p
+                    className="text-2xl font-extrabold text-brand-green-600"
+                    aria-label={`Discounted price ${plan.discount.toLocaleString()} rupees`}
+                  >
+                    ₹{plan.discount.toLocaleString()}
+                  </p>
                 </div>
               </div>
 
               {/* CTA Button pinned bottom */}
               <button
                 className={`mt-auto w-full ${plan.buttonColor} text-white py-4 rounded-2xl font-bold text-lg transform transition-all duration-300 hover:scale-105 relative overflow-hidden`}
+                aria-label={`Get ${plan.title} plan`}
               >
                 <span className="relative z-10">Get Plan</span>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-0" />
@@ -181,9 +205,16 @@ const PlansSection: React.FC = () => {
           ))}
         </div>
 
-        <div className={`text-center mt-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <button className="bg-brand-green-500 hover:bg-brand-green-400 text-white px-12 py-5 rounded-full font-bold text-xl shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto relative overflow-hidden group">
-            <BookOpen className="w-6 h-6 relative z-10" />
+        <div
+          className={`text-center mt-16 transition-all duration-1000 delay-300 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <button
+            className="bg-brand-green-500 hover:bg-brand-green-400 text-white px-12 py-5 rounded-full font-bold text-xl shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto relative overflow-hidden group"
+            aria-label="See all fitness programs"
+          >
+            <BookOpen className="w-6 h-6 relative z-10" aria-hidden="true" />
             <span className="relative z-10">See All Programs</span>
             <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-0" />
           </button>
