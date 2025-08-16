@@ -212,7 +212,7 @@ const ProgramsSection: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                <span className="text-black">Progress check-ins every 2 weeks</span>
+                <span className="text-black">Progress check-ins every week</span>
               </li>
               <li className="flex items-center gap-3">
                 <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
