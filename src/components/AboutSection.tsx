@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Heart, Brain, Users, Zap } from 'lucide-react';
+import { Zap } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,7 +43,7 @@ const AboutSection: React.FC = () => {
       emoji: '🏃',
       title: 'Movement-focused fitness',
       description: 'Games, challenges, and fun classes',
-      colorಸ: 'gray',
+      color: 'blue',
       particles: ['⚽', '🏀', '🎾']
     },
     {
@@ -57,19 +57,19 @@ const AboutSection: React.FC = () => {
 
   const whyItMatters = [
     {
-      icon: Heart,
+      emoji: '📱⚖️',
       title: 'Rising childhood obesity & screen time',
       description: '1 in 3 kids are inactive or not eating balanced meals regularly.',
-      color: 'brand-green'
+      color: 'red'
     },
     {
-      icon: Brain,
+      emoji: '🧠⏰',
       title: 'Poor habits begin early',
       description: 'Food relationships, energy levels, and mood are shaped young.',
-      color: 'black'
+      color: 'orange'
     },
     {
-      icon: Users,
+      emoji: '👨‍👩‍👧‍👦🤝',
       title: 'Kids learn best when families join in',
       description: 'Parent involvement creates better long-term results.',
       color: 'brand-green'
@@ -176,7 +176,6 @@ const AboutSection: React.FC = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {whyItMatters.map((item, index) => {
-              const IconComponent = item.icon;
               return (
                 <div
                   key={index}
@@ -189,12 +188,14 @@ const AboutSection: React.FC = () => {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-0" />
 
                   <div className="relative mb-4">
-                    <IconComponent
-                      className={`w-12 h-12 text-${item.color}-500 mx-auto transition-all duration-300 group-hover:scale-125 group-hover:rotate-12`}
-                    />
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto bg-${item.color}-100 border-2 border-${item.color}-200 transition-all duration-300 group-hover:scale-125 group-hover:rotate-12 group-hover:bg-${item.color}-200`}>
+                      <span className="text-3xl group-hover:scale-110 transition-transform duration-300 filter drop-shadow-lg">
+                        {item.emoji}
+                      </span>
+                    </div>
                     {activeCard === index && (
                       <div className="absolute inset-0 animate-ping">
-                        <IconComponent className={`w-12 h-12 text-${item.color}-300 mx-auto opacity-50`} />
+                        <div className={`w-16 h-16 rounded-full bg-${item.color}-200 opacity-50 mx-auto`} />
                       </div>
                     )}
                     <Zap className={`absolute -top-1 -right-1 w-4 h-4 text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-bounce`} />
