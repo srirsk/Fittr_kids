@@ -68,6 +68,11 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
+        {/* Disclaimer */}
+        <div className="text-center mb-6">
+          <p className="text-xs text-gray-400 italic">Disclaimer: For children aged 5 to 15 only.</p>
+        </div>
+
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
