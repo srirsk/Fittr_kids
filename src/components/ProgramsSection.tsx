@@ -102,7 +102,7 @@ const ProgramsSection: React.FC = () => {
 
             <div className="text-center mb-6">
               <div className="bg-brand-green-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-4xl">🥦</span>
+                <span className="text-4xl">🍎📋</span>
               </div>
               <h3 className="text-2xl font-bold text-black mb-2">Nutrition Only</h3>
             </div>
@@ -145,7 +145,7 @@ const ProgramsSection: React.FC = () => {
 
             <div className="text-center mb-6">
               <div className="bg-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-4xl">👥</span>
+                <span className="text-4xl">🏃‍♀️👥</span>
               </div>
               <h3 className="text-2xl font-bold text-black mb-2">Nutrition + Group Workout</h3>
             </div>
@@ -192,7 +192,7 @@ const ProgramsSection: React.FC = () => {
 
             <div className="text-center mb-6">
               <div className="bg-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-4xl">🎯</span>
+                <span className="text-4xl">🎯👨‍🏫</span>
               </div>
               <h3 className="text-2xl font-bold text-black mb-2">Nutrition + 1-on-1 Personal Training</h3>
             </div>
