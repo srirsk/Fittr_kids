@@ -1,6 +1,7 @@
 import React from 'react';
 import { Play, Zap } from 'lucide-react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import heroBg from './images/ChatGPT Image Aug 16, 2025, 08_08_47 AM.png'; // 👈 import local image
 
 const Hero: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -12,8 +13,7 @@ const Hero: React.FC = () => {
     <section
       className="relative min-h-screen overflow-hidden font-['Baloo_2'] flex items-center justify-center bg-black text-white"
       style={{
-        backgroundImage:
-          "url('https://images.unsplash.com/photo-1503457574462-bd27054394c1?auto=format&fit=crop&w=1600&q=80')",
+        backgroundImage: `url(${heroBg})`, // 👈 use local image
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
