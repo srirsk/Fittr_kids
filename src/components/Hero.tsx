@@ -123,7 +123,7 @@ const Hero: React.FC = () => {
         @media (min-width: 1024px) {
           .hero-section {
             background-size: 35%, cover;
-            background-position: center top -40px, center;
+            background-position: center , center;
           }
         }
       `}</style>
