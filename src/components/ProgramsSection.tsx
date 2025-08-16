@@ -153,11 +153,11 @@ const ProgramsSection: React.FC = () => {
             <ul className="space-y-4 mb-8">
               <li className="flex items-center gap-3">
                 <Check className="w-5 h-5 text-black flex-shrink-0" />
-                <span className="text-black">Everything in Nutrition Only</span>
+                <span className="text-black">1:1 Nutrition Coaching (everything in nutrition only)</span>
               </li>
               <li className="flex items-center gap-3">
                 <Check className="w-5 h-5 text-black flex-shrink-0" />
-                <span className="text-black">Weekly group classes (yoga, dance, HIIT)</span>
+                <span className="text-black">3x a week group classes</span>
               </li>
               <li className="flex items-center gap-3">
                 <Check className="w-5 h-5 text-black flex-shrink-0" />
@@ -200,11 +200,11 @@ const ProgramsSection: React.FC = () => {
             <ul className="space-y-4 mb-8">
               <li className="flex items-center gap-3">
                 <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                <span className="text-black">Everything in Plan 2</span>
+                <span className="text-black">Includes everything in Plan 2</span>
               </li>
               <li className="flex items-center gap-3">
                 <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                <span className="text-black">Private weekly sessions</span>
+                <span className="text-black">Private 3x week sessions</span>
               </li>
               <li className="flex items-center gap-3">
                 <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
