@@ -165,7 +165,7 @@ const Hero: React.FC = () => {
         /* Scale up Lottie animations inside card */
         .glass-card-portrait .dotlottie-player,
         .glass-card-portrait canvas {
-          transform: scale(1.6); /* Bigger on mobile */
+          transform: scale(2); /* 🚀 Bigger on mobile now */
         }
 
         @media (min-width: 640px) {
