@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
       }}
     >
       {/* --- Mobile (Arch Layout) --- */}
-      <div className="sm:hidden w-full flex justify-center mt-32 relative arch-container"> {/* Changed from mt-16 to mt-32 */}
+      <div className="sm:hidden w-full flex justify-center mt-32 relative arch-container">
         <div className="arch-row flex gap-4 relative">
           {/* Card 1 */}
           <div className="glass-card-portrait">
@@ -159,8 +159,8 @@ const Hero: React.FC = () => {
           align-items: center;
           justify-content: center;
           flex-direction: column;
-          width: 100px;
-          height: calc(100px * 4 / 3);
+          width: 80px; /* reduced size for mobile */
+          height: calc(80px * 4 / 3);
           background: rgba(255, 255, 255, 0.1);
           border-radius: 22px;
           backdrop-filter: blur(13px);
@@ -191,7 +191,7 @@ const Hero: React.FC = () => {
         /* Arch effect for mobile row */
         .arch-container .arch-row > :nth-child(2),
         .arch-container .arch-row > :nth-child(3) {
-          margin-top: -20px; /* lift middle 2 cards up */
+          margin-top: -20px;
         }
       `}</style>
     </section>
