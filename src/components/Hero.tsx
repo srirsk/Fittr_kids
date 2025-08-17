@@ -166,7 +166,7 @@ const Hero: React.FC = () => {
           backdrop-filter: blur(13px);
           -webkit-backdrop-filter: blur(13px);
           border: 1px solid rgba(255, 255, 255, 0.25);
-          box-shadow: 0 9px 22px rgba(0, 0, 0, 0.22);
+          /* removed shadow */
           overflow: hidden;
         }
         @media (min-width: 640px) {
