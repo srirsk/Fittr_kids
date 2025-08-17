@@ -14,40 +14,40 @@ const Hero: React.FC = () => {
     >
       {/* --- Lottie Animations in Portrait Glass Cards --- */}
       {/* Top Left */}
-      <div className="absolute top-[30%] left-[15%] glass-card-portrait">
+      <div className="absolute glass-card-portrait top-3 left-3 sm:top-[30%] sm:left-[15%]">
         <DotLottieReact
           src="https://lottie.host/c7c062dc-324a-4365-978d-1df5d306912f/kQM1Ri4cNt.lottie"
-          className="w-28 sm:w-32 md:w-36 animate-float-slow"
+          className="w-16 sm:w-28 md:w-36 animate-float-slow"
           loop
           autoplay
         />
       </div>
 
       {/* Top Right */}
-      <div className="absolute top-[30%] right-[15%] glass-card-portrait">
+      <div className="absolute glass-card-portrait top-3 right-3 sm:top-[30%] sm:right-[15%]">
         <DotLottieReact
           src="https://lottie.host/34c8828b-900e-4039-b83d-973473141055/Vb5htTnYgD.lottie"
-          className="w-28 sm:w-32 md:w-36 animate-float-med"
+          className="w-16 sm:w-28 md:w-36 animate-float-med"
           loop
           autoplay
         />
       </div>
 
       {/* Bottom Left */}
-      <div className="absolute bottom-[25%] left-[30%] glass-card-portrait">
+      <div className="absolute glass-card-portrait bottom-3 left-3 sm:bottom-[25%] sm:left-[30%]">
         <DotLottieReact
           src="https://lottie.host/44c52e08-7116-4aa7-8dbc-938fe346608a/7lWL1JOdGU.lottie"
-          className="w-28 sm:w-32 md:w-36 animate-float-fast"
+          className="w-16 sm:w-28 md:w-36 animate-float-fast"
           loop
           autoplay
         />
       </div>
 
       {/* Bottom Right */}
-      <div className="absolute bottom-[25%] right-[30%] glass-card-portrait">
+      <div className="absolute glass-card-portrait bottom-3 right-3 sm:bottom-[25%] sm:right-[30%]">
         <DotLottieReact
           src="https://lottie.host/d9f82825-e7cf-404d-9b10-e71bf9539905/FiNgFx9WPq.lottie"
-          className="w-28 sm:w-32 md:w-36 animate-float-slow"
+          className="w-16 sm:w-28 md:w-36 animate-float-slow"
           loop
           autoplay
         />
@@ -71,19 +71,37 @@ const Hero: React.FC = () => {
       {/* --- Floating Animation Keyframes + Glassmorphic Styles --- */}
       <style jsx>{`
         @keyframes float-slow {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-          100% { transform: translateY(0px); }
+          0% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+          100% {
+            transform: translateY(0px);
+          }
         }
         @keyframes float-med {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-15px); }
-          100% { transform: translateY(0px); }
+          0% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-15px);
+          }
+          100% {
+            transform: translateY(0px);
+          }
         }
         @keyframes float-fast {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-          100% { transform: translateY(0px); }
+          0% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-20px);
+          }
+          100% {
+            transform: translateY(0px);
+          }
         }
         .animate-float-slow {
           animation: float-slow 6s ease-in-out infinite;
@@ -102,7 +120,7 @@ const Hero: React.FC = () => {
         @media (min-width: 640px) {
           .hero-section {
             background-size: 50%, cover;
-            background-position: center , center;
+            background-position: center, center;
           }
         }
         @media (min-width: 768px) {
@@ -118,16 +136,15 @@ const Hero: React.FC = () => {
           }
         }
 
-        /* --- Fixed Portrait Glassmorphic Card (Slightly Smaller) --- */
+        /* --- Portrait Glassmorphic Card --- */
         .glass-card-portrait {
           display: flex;
           align-items: center;
           justify-content: center;
           flex-direction: column;
 
-          /* Maintain 4:3 ratio */
-          width: 140px;   /* was 150px */
-          height: calc(140px * 4 / 3);
+          width: 100px; /* smaller on mobile */
+          height: calc(100px * 4 / 3);
 
           background: rgba(255, 255, 255, 0.1);
           border-radius: 22px;
@@ -138,10 +155,24 @@ const Hero: React.FC = () => {
           overflow: hidden;
         }
 
+        @media (min-width: 640px) {
+          .glass-card-portrait {
+            width: 140px; /* back to original */
+            height: calc(140px * 4 / 3);
+          }
+        }
+
         /* Scale up Lottie animations inside card */
         .glass-card-portrait .dotlottie-player,
         .glass-card-portrait canvas {
-          transform: scale(1.4);   /* was 1.5 */
+          transform: scale(1.6); /* Bigger on mobile */
+        }
+
+        @media (min-width: 640px) {
+          .glass-card-portrait .dotlottie-player,
+          .glass-card-portrait canvas {
+            transform: scale(1.4); /* Normal on sm+ */
+          }
         }
       `}</style>
     </section>
