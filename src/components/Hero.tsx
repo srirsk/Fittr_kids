@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
     >
       {/* --- Lottie Animations in Portrait Glass Cards --- */}
       {/* Top Left */}
-      <div className="absolute top-44 left-[15%] glass-card-portrait">
+      <div className="absolute top-[20%] left-[15%] glass-card-portrait">
         <DotLottieReact
           src="https://lottie.host/c7c062dc-324a-4365-978d-1df5d306912f/kQM1Ri4cNt.lottie"
           className="w-28 sm:w-32 md:w-36 animate-float-slow"
@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Top Right */}
-      <div className="absolute top-44 right-[15%] glass-card-portrait">
+      <div className="absolute top-[20%] right-[15%] glass-card-portrait">
         <DotLottieReact
           src="https://lottie.host/34c8828b-900e-4039-b83d-973473141055/Vb5htTnYgD.lottie"
           className="w-28 sm:w-32 md:w-36 animate-float-med"
@@ -34,7 +34,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Bottom Left */}
-      <div className="absolute bottom-48 left-[30%] glass-card-portrait">
+      <div className="absolute bottom-[30%] left-[30%] glass-card-portrait">
         <DotLottieReact
           src="https://lottie.host/44c52e08-7116-4aa7-8dbc-938fe346608a/7lWL1JOdGU.lottie"
           className="w-28 sm:w-32 md:w-36 animate-float-fast"
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Bottom Right */}
-      <div className="absolute bottom-48 right-[30%] glass-card-portrait">
+      <div className="absolute bottom-[30%] right-[30%] glass-card-portrait">
         <DotLottieReact
           src="https://lottie.host/d9f82825-e7cf-404d-9b10-e71bf9539905/FiNgFx9WPq.lottie"
           className="w-28 sm:w-32 md:w-36 animate-float-slow"
@@ -102,13 +102,13 @@ const Hero: React.FC = () => {
         @media (min-width: 640px) {
           .hero-section {
             background-size: 50%, cover;
-            background-position: center top -60px, center;
+            background-position: center , center;
           }
         }
         @media (min-width: 768px) {
           .hero-section {
             background-size: 40%, cover;
-            background-position: center top -80px, center;
+            background-position: center, center;
           }
         }
         @media (min-width: 1024px) {
