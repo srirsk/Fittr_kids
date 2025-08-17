@@ -118,33 +118,31 @@ const Hero: React.FC = () => {
           }
         }
 
-        /* Fixed Portrait Glassmorphic Card */
-        /* --- Fixed Portrait Glassmorphic Card --- */
-.glass-card-portrait {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+        /* --- Fixed Portrait Glassmorphic Card (Bigger) --- */
+        .glass-card-portrait {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
 
-  /* Maintain 4:3 ratio */
-  width: 120px;   /* base width */
-  height: calc(120px * 4 / 3); /* ensures 4:3 ratio */
+          /* Maintain 4:3 ratio */
+          width: 150px;   /* increased from 120px */
+          height: calc(150px * 4 / 3); /* ensures 4:3 ratio */
 
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-}
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 24px;
+          backdrop-filter: blur(14px);
+          -webkit-backdrop-filter: blur(14px);
+          border: 1px solid rgba(255, 255, 255, 0.25);
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+          overflow: hidden;
+        }
 
-/* Scale up Lottie animations inside card without resizing card */
-.glass-card-portrait .dotlottie-player,
-.glass-card-portrait canvas {
-  transform: scale(1.3);   /* Increase size */
-}
-
+        /* Scale up Lottie animations inside card */
+        .glass-card-portrait .dotlottie-player,
+        .glass-card-portrait canvas {
+          transform: scale(1.5);   /* was 1.3 → now bigger */
+        }
       `}</style>
     </section>
   );
