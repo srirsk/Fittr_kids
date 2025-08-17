@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
           {/* Card 1 */}
           <div className="glass-card-portrait">
             <DotLottieReact
-              src="https://lottie.host/c7c062dc-324a-4365-978d-1df5d306912f/kQM1Ri4cNt.lottie"
+              src="https://lottie.host/ff9be1ff-090d-451f-855b-31da9c50d22f/ERUKQaJUuJ.lottie"
               className="w-16 animate-float-slow"
               loop
               autoplay
@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
           {/* Card 2 */}
           <div className="glass-card-portrait arch-up">
             <DotLottieReact
-              src="https://lottie.host/34c8828b-900e-4039-b83d-973473141055/Vb5htTnYgD.lottie"
+              src="https://lottie.host/ea085a84-10f0-4e45-b6f5-f0bcf858f4b4/ZT6wMHHWUb.lottie"
               className="w-16 animate-float-med"
               loop
               autoplay
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
           {/* Card 3 */}
           <div className="glass-card-portrait arch-up">
             <DotLottieReact
-              src="https://lottie.host/44c52e08-7116-4aa7-8dbc-938fe346608a/7lWL1JOdGU.lottie"
+              src="https://lottie.host/f23a25da-fff3-4788-826c-e944607c5e43/bSTfq6IUfF.lottie"
               className="w-16 animate-float-fast"
               loop
               autoplay
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
           {/* Card 4 */}
           <div className="glass-card-portrait">
             <DotLottieReact
-              src="https://lottie.host/d9f82825-e7cf-404d-9b10-e71bf9539905/FiNgFx9WPq.lottie"
+              src="https://lottie.host/0a7eda7b-168a-4e08-955b-5564424c2063/Gxqpqg3mGi.lottie"
               className="w-16 animate-float-slow"
               loop
               autoplay
@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
         {/* Top Left */}
         <div className="absolute glass-card-portrait top-[30%] left-[15%]">
           <DotLottieReact
-            src="https://lottie.host/c7c062dc-324a-4365-978d-1df5d306912f/kQM1Ri4cNt.lottie"
+            src="https://lottie.host/ff9be1ff-090d-451f-855b-31da9c50d22f/ERUKQaJUuJ.lottie"
             className="w-28 md:w-36 animate-float-slow"
             loop
             autoplay
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
         {/* Top Right */}
         <div className="absolute glass-card-portrait top-[30%] right-[15%]">
           <DotLottieReact
-            src="https://lottie.host/34c8828b-900e-4039-b83d-973473141055/Vb5htTnYgD.lottie"
+            src="https://lottie.host/ea085a84-10f0-4e45-b6f5-f0bcf858f4b4/ZT6wMHHWUb.lottie"
             className="w-28 md:w-36 animate-float-med"
             loop
             autoplay
@@ -77,7 +77,7 @@ const Hero: React.FC = () => {
         {/* Bottom Left */}
         <div className="absolute glass-card-portrait bottom-[25%] left-[30%]">
           <DotLottieReact
-            src="https://lottie.host/44c52e08-7116-4aa7-8dbc-938fe346608a/7lWL1JOdGU.lottie"
+            src="https://lottie.host/f23a25da-fff3-4788-826c-e944607c5e43/bSTfq6IUfF.lottie"
             className="w-28 md:w-36 animate-float-fast"
             loop
             autoplay
@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
         {/* Bottom Right */}
         <div className="absolute glass-card-portrait bottom-[25%] right-[30%]">
           <DotLottieReact
-            src="https://lottie.host/d9f82825-e7cf-404d-9b10-e71bf9539905/FiNgFx9WPq.lottie"
+            src="https://lottie.host/0a7eda7b-168a-4e08-955b-5564424c2063/Gxqpqg3mGi.lottie"
             className="w-28 md:w-36 animate-float-slow"
             loop
             autoplay
@@ -166,7 +166,6 @@ const Hero: React.FC = () => {
           backdrop-filter: blur(13px);
           -webkit-backdrop-filter: blur(13px);
           border: 1px solid rgba(255, 255, 255, 0.25);
-          /* removed shadow */
           overflow: hidden;
         }
         @media (min-width: 640px) {
