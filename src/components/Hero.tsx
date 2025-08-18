@@ -114,10 +114,6 @@ const Hero: React.FC = () => {
         /* Import Rubik font */
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
 
-        * {
-          font-family: 'Rubik', sans-serif !important;
-        }
-
         /* Floating Animations */
         @keyframes float-slow {
           0% { transform: translateY(0px); }
