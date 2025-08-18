@@ -183,7 +183,7 @@ const Hero: React.FC = () => {
         @media (min-width: 640px) {
           .glass-card-portrait .dotlottie-player,
           .glass-card-portrait canvas {
-            transform: scale(1.4);
+            transform: scale(1.8);
           }
         }
 
