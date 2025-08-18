@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BookOpen } from 'lucide-react';
+import { BookOpen, Zap } from 'lucide-react';
 
 const PlansSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,7 +45,7 @@ const PlansSection: React.FC = () => {
       discount: 8500,
     },
     {
-      emoji: '👯', // Changed to dancing people for group activity emphasis
+      emoji: '👯',
       title: 'Group Sessions for Kids',
       description: 'Dance, yoga, fitness games',
       features: 'Ages 5–8, 9–12, and teens • Weekly schedule',
@@ -123,7 +123,7 @@ const PlansSection: React.FC = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`bg-gray-50 border border-gray-200 rounded-3xl p-8 shadow-xl transition-all duration-500 relative overflow-hidden group hover:shadow-2xl hover:scale-[1.02] flex flex-col h-full ${
+              className={`bg-gray-50 border border-gray-200 rounded-3xl p-8 shadow-xl transition-all duration-500 relative overflow-hidden group hover:shadow-2xl hover:scale-[1.02] hover:rotate-1 flex flex-col h-full ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ animationDelay: `${index * 200}ms` }}
@@ -160,22 +160,22 @@ const PlansSection: React.FC = () => {
                 ))}
 
               <div className="text-center mb-6 relative">
-                <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg relative group-hover:animate-pulse transition-all duration-300 group-hover:scale-125">
+                <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg relative group-hover:animate-pulse transition-all duration-500 group-hover:scale-125">
                   <span
-                    className="text-4xl group-hover:scale-110 transition-transform duration-300"
+                    className="text-4xl group-hover:scale-110 transition-transform duration-500"
                     aria-label={`${plan.title} icon`}
                   >
                     {plan.emoji}
                   </span>
                   <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30 group-hover:animate-ping" />
                 </div>
-                <h3 className="text-2xl font-bold text-black mb-3 group-hover:text-brand-green-600 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-black mb-3 group-hover:text-brand-green-600 transition-colors duration-500">
                   {plan.title}
                 </h3>
-                <p className="text-lg text-black font-medium mb-2 group-hover:text-gray-900 transition-colors duration-300">
+                <p className="text-lg text-black font-medium mb-2 group-hover:text-gray-900 transition-colors duration-500">
                   {plan.description}
                 </p>
-                <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                <p className="text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500">
                   {plan.features}
                 </p>
 
@@ -195,11 +195,12 @@ const PlansSection: React.FC = () => {
 
               {/* CTA Button pinned bottom */}
               <button
-                className={`mt-auto w-full ${plan.buttonColor} text-white py-4 rounded-2xl font-bold text-lg transform transition-all duration-300 hover:scale-105 relative overflow-hidden`}
+                className={`mt-auto w-full ${plan.buttonColor} text-white py-4 rounded-2xl font-bold text-lg transform transition-all duration-500 hover:scale-105 relative overflow-hidden`}
                 aria-label={`Get ${plan.title} plan`}
               >
                 <span className="relative z-10">Get Plan</span>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-0" />
+                <Zap className="absolute -top-1 -right-1 w-4 h-4 text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-bounce" />
               </button>
             </div>
           ))}
@@ -211,12 +212,13 @@ const PlansSection: React.FC = () => {
           }`}
         >
           <button
-            className="bg-brand-green-500 hover:bg-brand-green-400 text-white px-12 py-5 rounded-full font-bold text-xl shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto relative overflow-hidden group"
+            className="bg-brand-green-500 hover:bg-brand-green-400 text-white px-12 py-5 rounded-full font-bold text-xl shadow-xl transform hover:scale-105 transition-all duration-500 flex items-center gap-3 mx-auto relative overflow-hidden group"
             aria-label="See all fitness programs"
           >
             <BookOpen className="w-6 h-6 relative z-10" aria-hidden="true" />
             <span className="relative z-10">See All Programs</span>
             <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-0" />
+            <Zap className="absolute -top-1 -right-1 w-4 h-4 text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-bounce" />
           </button>
         </div>
       </div>
