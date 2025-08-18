@@ -6,7 +6,7 @@ import heroTitle from "./images/3d balloon.png";
 const Hero: React.FC = () => {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-start text-center overflow-hidden font-['Baloo_2'] hero-section"
+      className="relative min-h-screen flex flex-col items-center justify-start text-center overflow-hidden font-['Rubik'] hero-section"
       style={{
         backgroundImage: `url(${heroTitle}), url(${bgImage})`,
         backgroundRepeat: "no-repeat, no-repeat",
@@ -96,9 +96,10 @@ const Hero: React.FC = () => {
 
       {/* --- Bottom Section (Subtitle + Buttons) --- */}
       <div className="absolute bottom-12 w-full flex flex-col items-center px-4">
-        <p className="text-lg md:text-xl max-w-2xl text-white drop-shadow-md mb-6">
-          Fun fitness and nutrition programs designed for kids and parents together.
-        </p>
+        <p className="text-lg md:text-xl text-white drop-shadow-md mb-6 whitespace-normal md:whitespace-nowrap">
+  Fun fitness and nutrition programs designed for kids and parents together.
+</p>
+
         <div className="flex flex-col sm:flex-row gap-4">
           <button className="bg-[#11A663] text-white px-8 py-4 rounded-full font-bold text-lg shadow-md hover:scale-105 transition-transform">
             Start Your Plan 💪
@@ -110,6 +111,13 @@ const Hero: React.FC = () => {
       </div>
 
       <style jsx>{`
+        /* Import Rubik font */
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+
+        * {
+          font-family: 'Rubik', sans-serif !important;
+        }
+
         /* Floating Animations */
         @keyframes float-slow {
           0% { transform: translateY(0px); }
