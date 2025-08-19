@@ -1,26 +1,28 @@
-import React from 'react';
-import { Youtube, Play } from 'lucide-react';
+import React, { useState } from 'react';
+import { Youtube, Play, X } from 'lucide-react';
 
 const VideoSection: React.FC = () => {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
   const videos = [
     {
       title: 'Fittr Kids - Healthy Eating for Kids | Nutrition Guide',
       thumbnail: 'https://img.youtube.com/vi/aX-UZg9j-uo/mqdefault.jpg',
       duration: '5:30',
-      url: 'https://youtu.be/aX-UZg9j-uo?si=9QB9pzLC-krYJGj8'
+      url: 'https://www.youtube.com/embed/aX-UZg9j-uo',
     },
     {
       title: 'Fittr Kids - Fun Morning Exercise Routine for Kids',
       thumbnail: 'https://img.youtube.com/vi/bGrrF6VoyWU/mqdefault.jpg',
       duration: '6:15',
-      url: 'https://youtu.be/bGrrF6VoyWU?si=NM4dLy5QzJxQwzRy'
+      url: 'https://www.youtube.com/embed/bGrrF6VoyWU',
     },
     {
       title: 'Fittr Kids - Mindfulness and Relaxation for Kids',
       thumbnail: 'https://img.youtube.com/vi/rpG6R-sOolE/mqdefault.jpg',
       duration: '4:45',
-      url: 'https://youtu.be/rpG6R-sOolE?si=oO9Ec_mYZ6rhx3OD'
-    }
+      url: 'https://www.youtube.com/embed/rpG6R-sOolE',
+    },
   ];
 
   const handleYouTubeClick = () => {
@@ -39,14 +41,13 @@ const VideoSection: React.FC = () => {
           </p>
         </div>
         
+        {/* Thumbnails Grid */}
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
           {videos.map((video, index) => (
-            <a
+            <div
               key={index}
-              href={video.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group"
+              onClick={() => setActiveVideo(video.url)}
+              className="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group cursor-pointer"
             >
               <div className="relative">
                 <img
@@ -68,10 +69,11 @@ const VideoSection: React.FC = () => {
                   {video.title}
                 </h3>
               </div>
-            </a>
+            </div>
           ))}
         </div>
         
+        {/* Visit channel button */}
         <div className="text-center">
           <button
             onClick={handleYouTubeClick}
@@ -82,6 +84,30 @@ const VideoSection: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Cute Popup Modal */}
+      {activeVideo && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
+          <div className="bg-white rounded-3xl shadow-2xl relative w-[90%] md:w-[70%] lg:w-[60%] p-4 border-4 border-pink-300">
+            <button
+              className="absolute -top-3 -right-3 bg-pink-500 text-white rounded-full p-2 shadow hover:bg-pink-600 transition"
+              onClick={() => setActiveVideo(null)}
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-2xl">
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-2xl"
+                src={`${activeVideo}?autoplay=1`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
