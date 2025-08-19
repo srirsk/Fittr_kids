@@ -30,7 +30,6 @@ const Footer: React.FC = () => {
               <a href="https://www.youtube.com/@fittrkids7942/videos" className="bg-gray-800 hover:bg-gray-600 p-3 rounded-full transition-colors duration-300">
                 <Youtube className="w-5 h-5" />
               </a>
-              {/* X (Twitter) */}
               <a href="https://x.com/FITTRwithsquats" className="bg-gray-800 hover:bg-brand-green-500 p-3 rounded-full transition-colors duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -74,12 +73,6 @@ const Footer: React.FC = () => {
                 <a href="tel:08888003430" className="text-gray-300 hover:text-white transition-colors duration-300">
                   08888003430
                 </a>
-              </div>
-              <div className="bg-brand-green-500/10 border border-brand-green-500/20 rounded-xl p-4">
-                <p className="text-sm text-gray-300 mb-2">💬 Need quick help?</p>
-                <button className="text-brand-green-400 hover:text-brand-green-300 font-medium transition-colors duration-300">
-                  Need Support?
-                </button>
               </div>
             </div>
           </div>
