@@ -90,7 +90,7 @@ const VideoSection: React.FC = () => {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
           <div className="bg-white rounded-3xl shadow-2xl relative w-[90%] md:w-[70%] lg:w-[60%] p-4 border-4 border-pink-300">
             <button
-              className="absolute -top-3 -right-3 bg-pink-500 text-white rounded-full p-2 shadow hover:bg-pink-600 transition"
+              className="absolute -top-3 -right-3 bg-pink-500 text-white rounded-full p-2 shadow hover:bg-pink-600 transition z-50"
               onClick={() => setActiveVideo(null)}
             >
               <X className="w-6 h-6" />
