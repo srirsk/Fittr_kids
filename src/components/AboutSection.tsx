@@ -43,7 +43,7 @@ const AboutSection: React.FC = () => {
       emoji: '🏃',
       title: 'Movement-focused fitness',
       description: 'Games, challenges, and fun classes',
-      color: 'brand-green', // Changed from 'blue' to 'brand-green'
+      color: 'brand-green',
       particles: ['⚽', '🏀', '🎾']
     },
     {
@@ -83,33 +83,6 @@ const AboutSection: React.FC = () => {
       className="py-20 bg-white relative overflow-hidden"
       onMouseMove={handleMouseMove}
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-gradient-to-r from-blue-300 to-orange-300 rounded-full opacity-20 animate-bounce"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
-            }}
-          />
-        ))}
-      </div>
-      {/* Interactive cursor glow */}
-      <div
-        className="absolute pointer-events-none opacity-30 transition-opacity duration-300"
-        style={{
-          left: mousePosition.x - 50,
-          top: mousePosition.y - 50,
-          width: '100px',
-          height: '100px',
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%)',
-          borderRadius: '50%'
-        }}
-      />
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Disclaimer */}
