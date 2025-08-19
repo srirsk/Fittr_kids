@@ -4,21 +4,28 @@ import { Youtube, Play } from 'lucide-react';
 const VideoSection: React.FC = () => {
   const videos = [
     {
-      title: '🥦 Healthy Eating Made Easy',
-      thumbnail: 'https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      duration: '8:45'
+      title: 'Fittr Kids - Healthy Eating for Kids | Nutrition Guide',
+      thumbnail: 'https://img.youtube.com/vi/aX-UZg9j-uo/mqdefault.jpg',
+      duration: '5:30',
+      url: 'https://youtu.be/aX-UZg9j-uo?si=9QB9pzLC-krYJGj8'
     },
     {
-      title: '🏃 5-Minute Morning Moves',
-      thumbnail: 'https://images.pexels.com/photos/863988/pexels-photo-863988.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      duration: '5:12'
+      title: 'Fittr Kids - Fun Morning Exercise Routine for Kids',
+      thumbnail: 'https://img.youtube.com/vi/bGrrF6VoyWU/mqdefault.jpg',
+      duration: '6:15',
+      url: 'https://youtu.be/bGrrF6VoyWU?si=NM4dLy5QzJxQwzRy'
     },
     {
-      title: '🧘 Calm Kids – Mindfulness 101',
-      thumbnail: 'https://images.pexels.com/photos/1103242/pexels-photo-1103242.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
-      duration: '12:30'
+      title: 'Fittr Kids - Mindfulness and Relaxation for Kids',
+      thumbnail: 'https://img.youtube.com/vi/rpG6R-sOolE/mqdefault.jpg',
+      duration: '4:45',
+      url: 'https://youtu.be/rpG6R-sOolE?si=oO9Ec_mYZ6rhx3OD'
     }
   ];
+
+  const handleYouTubeClick = () => {
+    window.open('https://www.youtube.com/@fittrkids7942/videos', '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <section id="videos" className="py-20 bg-white">
@@ -34,8 +41,11 @@ const VideoSection: React.FC = () => {
         
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
           {videos.map((video, index) => (
-            <div
+            <a
               key={index}
+              href={video.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-300 hover:shadow-2xl group"
             >
               <div className="relative">
@@ -58,12 +68,15 @@ const VideoSection: React.FC = () => {
                   {video.title}
                 </h3>
               </div>
-            </div>
+            </a>
           ))}
         </div>
         
         <div className="text-center">
-          <button className="bg-black hover:bg-gray-800 text-white px-12 py-5 rounded-full font-bold text-xl shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto">
+          <button
+            onClick={handleYouTubeClick}
+            className="bg-black hover:bg-gray-800 text-white px-12 py-5 rounded-full font-bold text-xl shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
+          >
             <Youtube className="w-6 h-6" />
             Visit Our YouTube Channel
           </button>

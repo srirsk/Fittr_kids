@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, MessageCircle, Send } from 'lucide-react';
+import { Mail, Send } from 'lucide-react';
+import { FaFacebook } from 'react-icons/fa';
 
 const CommunitySection: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -55,14 +56,15 @@ const CommunitySection: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <span className="text-white/80">Or join our community:</span>
                   <div className="flex gap-4">
-                    <button className="bg-brand-green-500 hover:bg-brand-green-400 text-white px-6 py-3 rounded-full font-bold transform hover:scale-105 transition-all duration-300 flex items-center gap-2">
-                      <MessageCircle className="w-5 h-5" />
-                      WhatsApp
-                    </button>
-                    <button className="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-full font-bold transform hover:scale-105 transition-all duration-300 flex items-center gap-2">
-                      <MessageCircle className="w-5 h-5" />
-                      Telegram
-                    </button>
+                    <a
+                      href="https://www.facebook.com/groups/squatsjc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                    >
+                      <FaFacebook className="w-5 h-5" />
+                      Facebook
+                    </a>
                   </div>
                 </div>
               </form>

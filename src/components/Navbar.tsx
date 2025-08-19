@@ -28,7 +28,6 @@ const Navbar: React.FC = () => {
     { label: 'Home', action: scrollToTop },
     { label: 'About', action: () => scrollToSection('about') },
     { label: 'Programs', action: () => scrollToSection('programs') },
-    { label: 'Plans', action: () => scrollToSection('plans') },
     { label: 'Videos', action: () => scrollToSection('videos') },
     { label: 'Community', action: () => scrollToSection('community') }
   ];

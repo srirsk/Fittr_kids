@@ -43,7 +43,7 @@ const AboutSection: React.FC = () => {
       emoji: '🏃',
       title: 'Movement-focused fitness',
       description: 'Games, challenges, and fun classes',
-      color: 'blue',
+      color: 'brand-green', // Changed from 'blue' to 'brand-green'
       particles: ['⚽', '🏀', '🎾']
     },
     {
@@ -112,6 +112,13 @@ const AboutSection: React.FC = () => {
       />
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
+          {/* Disclaimer */}
+          <div className="text-center mb-8">
+            <p className="text-lg font-semibold text-gray-800 bg-brand-green-100 inline-block px-6 py-2 rounded-full border border-brand-green-200 shadow-sm">
+              Disclaimer: For children aged 5 to 15 only
+            </p>
+          </div>
+
           <div className={`text-center mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <h2 className="text-4xl md:text-5xl font-black mb-4 text-gray-800 relative">
               What is <span className="text-brand-green-500 relative inline-block group">Fittr Kids</span>?

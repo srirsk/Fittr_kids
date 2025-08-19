@@ -63,7 +63,7 @@ const ConsentModal: React.FC<ConsentModalProps> = ({ isOpen, onClose, onConsent,
 const ProgramsSection: React.FC = () => {
   const [modalState, setModalState] = useState<{ isOpen: boolean; program: string }>({
     isOpen: false,
-    program: ''
+    program: '',
   });
 
   const handleEnrollClick = (programName: string) => {
@@ -79,6 +79,61 @@ const ProgramsSection: React.FC = () => {
     setModalState({ isOpen: false, program: '' });
   };
 
+  const programs = [
+    {
+      title: 'Nutrition Only',
+      emoji: '🍎📋',
+      badge: 'STARTER',
+      badgeColor: 'bg-brand-green-500',
+      features: [
+        'Personalized meal plans for kids',
+        'Habit trackers & healthy snack ideas',
+        'Downloadable tools for parents',
+        'Email support',
+      ],
+      buttonColor: 'bg-brand-green-500 hover:bg-brand-green-400',
+      buttonText: 'Enroll Now',
+      price: 10500,
+      discount: 8500,
+    },
+    {
+      title: 'Nutrition + Group Workout',
+      emoji: '🏃‍♀️👥',
+      badge: 'POPULAR',
+      badgeIcon: <Star className="w-4 h-4" />,
+      badgeColor: 'bg-black',
+      features: [
+        '1:1 Nutrition Coaching (everything in nutrition only)',
+        '3x a week group classes',
+        'Age-appropriate groups',
+        'Led by certified kid fitness coaches',
+        'Access to session calendar',
+      ],
+      buttonColor: 'bg-black hover:bg-gray-800',
+      buttonText: 'Join Group Program',
+      price: 14500,
+      discount: 11500,
+    },
+    {
+      title: 'Nutrition + 1-on-1 Personal Training',
+      emoji: '🎯👨‍🏫',
+      badge: 'PREMIUM',
+      badgeIcon: <Crown className="w-4 h-4" />,
+      badgeColor: 'bg-gray-600',
+      features: [
+        'Personal Training',
+        'Private 3x week sessions',
+        'Customized workouts based on fitness level',
+        'Progress check-ins every week',
+        'Parent coaching + involvement tips',
+      ],
+      buttonColor: 'bg-gray-600 hover:bg-gray-700',
+      buttonText: 'Book Personal Plan',
+      price: 22000,
+      discount: 18000,
+    },
+  ];
+
   return (
     <section id="programs" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -92,141 +147,73 @@ const ProgramsSection: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Nutrition Only */}
-          <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-brand-green-500 transform hover:scale-105 transition-all duration-300 relative flex flex-col">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <div className="bg-brand-green-500 text-white px-4 py-2 rounded-full text-sm font-bold">
-                STARTER
-              </div>
-            </div>
-
-            <div className="text-center mb-6">
-              <div className="bg-brand-green-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-4xl">🍎📋</span>
-              </div>
-              <h3 className="text-2xl font-bold text-black mb-2">Nutrition Only</h3>
-            </div>
-
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-brand-green-500 flex-shrink-0" />
-                <span className="text-black">Personalized meal plans for kids</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-brand-green-500 flex-shrink-0" />
-                <span className="text-black">Habit trackers & healthy snack ideas</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-brand-green-500 flex-shrink-0" />
-                <span className="text-black">Downloadable tools for parents</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-brand-green-500 flex-shrink-0" />
-                <span className="text-black">Email support</span>
-              </li>
-            </ul>
-
-            <button
-              onClick={() => handleEnrollClick('Nutrition Only Plan')}
-              className="mt-auto w-full bg-brand-green-500 hover:bg-brand-green-400 text-white py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300"
+          {programs.map((program, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-3xl p-8 shadow-xl border-2 border-brand-green-500 transform hover:scale-105 transition-all duration-300 relative flex flex-col"
             >
-              Enroll Now
-            </button>
-          </div>
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div
+                  className={`${program.badgeColor} text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2`}
+                >
+                  {program.badgeIcon}
+                  <span>{program.badge}</span>
+                </div>
+              </div>
 
-          {/* Nutrition + Group Workout */}
-          <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-black transform hover:scale-105 transition-all duration-300 relative flex flex-col">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <div className="bg-black text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
-                <Star className="w-4 h-4" />
-                POPULAR
+              <div className="text-center mb-6">
+                <div
+                  className={`${
+                    program.badgeColor === 'bg-brand-green-500' ? 'bg-brand-green-500' : 'bg-gray-200'
+                  } w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4`}
+                >
+                  <span className="text-4xl">{program.emoji}</span>
+                </div>
+                <h3 className="text-2xl font-bold text-black mb-2">{program.title}</h3>
+              </div>
+
+              <ul className="space-y-4 mb-8 flex-grow">
+                {program.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center gap-3">
+                    <Check
+                      className={`w-5 h-5 ${
+                        program.badgeColor === 'bg-brand-green-500'
+                          ? 'text-brand-green-500'
+                          : program.badgeColor === 'bg-black'
+                          ? 'text-black'
+                          : 'text-gray-600'
+                      } flex-shrink-0`}
+                    />
+                    <span className="text-black">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-auto">
+                <div className="text-center mb-4">
+                  <p
+                    className="text-gray-500 line-through text-lg"
+                    aria-label={`Original price ${program.price.toLocaleString()} rupees`}
+                  >
+                    ₹{program.price.toLocaleString()}
+                  </p>
+                  <p
+                    className="text-2xl font-extrabold text-brand-green-600"
+                    aria-label={`Discounted price ${program.discount.toLocaleString()} rupees`}
+                  >
+                    ₹{program.discount.toLocaleString()}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => handleEnrollClick(`${program.title} Plan`)}
+                  className={`w-full ${program.buttonColor} text-white py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300`}
+                >
+                  {program.buttonText}
+                </button>
               </div>
             </div>
-
-            <div className="text-center mb-6">
-              <div className="bg-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-4xl">🏃‍♀️👥</span>
-              </div>
-              <h3 className="text-2xl font-bold text-black mb-2">Nutrition + Group Workout</h3>
-            </div>
-
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-black flex-shrink-0" />
-                <span className="text-black">1:1 Nutrition Coaching (everything in nutrition only)</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-black flex-shrink-0" />
-                <span className="text-black">3x a week group classes</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-black flex-shrink-0" />
-                <span className="text-black">Age-appropriate groups</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-black flex-shrink-0" />
-                <span className="text-black">Led by certified kid fitness coaches</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-black flex-shrink-0" />
-                <span className="text-black">Access to session calendar</span>
-              </li>
-            </ul>
-
-            <button
-              onClick={() => handleEnrollClick('Nutrition + Group Workout Plan')}
-              className="mt-auto w-full bg-black hover:bg-gray-800 text-white py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300"
-            >
-              Join Group Program
-            </button>
-          </div>
-
-          {/* Nutrition + 1-on-1 Personal Training */}
-          <div className="bg-white rounded-3xl p-8 shadow-xl border-2 border-gray-300 transform hover:scale-105 transition-all duration-300 relative flex flex-col">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <div className="bg-gray-600 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
-                <Crown className="w-4 h-4" />
-                PREMIUM
-              </div>
-            </div>
-
-            <div className="text-center mb-6">
-              <div className="bg-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-4xl">🎯👨‍🏫</span>
-              </div>
-              <h3 className="text-2xl font-bold text-black mb-2">Nutrition + 1-on-1 Personal Training</h3>
-            </div>
-
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                <span className="text-black">Personal Training</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                <span className="text-black">Private 3x week sessions</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                <span className="text-black">Customized workouts based on fitness level</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                <span className="text-black">Progress check-ins every week</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                <span className="text-black">Parent coaching + involvement tips</span>
-              </li>
-            </ul>
-
-            <button
-              onClick={() => handleEnrollClick('Nutrition + 1-on-1 Personal Training Plan')}
-              className="mt-auto w-full bg-gray-600 hover:bg-gray-700 text-white py-4 rounded-2xl font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-300"
-            >
-              Book Personal Plan
-            </button>
-          </div>
+          ))}
         </div>
       </div>
 

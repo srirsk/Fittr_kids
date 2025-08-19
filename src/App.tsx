@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 
 function App() {
   const [showPopup, setShowPopup] = useState(true);
+  const [showSupportPopup, setShowSupportPopup] = useState(false);
   const [email, setEmail] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -25,23 +26,24 @@ function App() {
       <Hero />
       <AboutSection />
       <ProgramsSection />
-      <PlansSection />
       <VideoSection />
       <CommunitySection />
       <Footer />
 
       {/* Sticky CTA Bar */}
       <div className="fixed bottom-4 right-4 z-40">
-        <button className="bg-brand-green-500 hover:bg-brand-green-400 text-white px-6 py-3 rounded-full font-bold shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2">
-          💬 Chat with a Coach
+        <button 
+          onClick={() => setShowSupportPopup(true)}
+          className="bg-brand-green-500 hover:bg-brand-green-400 text-white px-6 py-3 rounded-full font-bold shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+        >
+          💬 need support?
         </button>
       </div>
 
-      {/* Popup Modal */}
+      {/* Email Signup Popup Modal */}
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center relative">
-            {/* Close Button */}
             <button
               onClick={() => setShowPopup(false)}
               className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl"
@@ -50,10 +52,10 @@ function App() {
             </button>
 
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Unlock Free Kids’ Nutrition Tips 🍎
+              Unlock Free Kids’ Nutrition Guides📘
             </h2>
             <p className="text-gray-600 mb-6">
-              Get expert advice, meal ideas, and healthy hacks for your kids—straight to your inbox.
+              Download trusted resources and easy tips to help your child build healthy eating habits
             </p>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -72,6 +74,35 @@ function App() {
                 Get Free Content
               </button>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Support Popup Modal */}
+      {showSupportPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center relative">
+            <button
+              onClick={() => setShowSupportPopup(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl"
+            >
+              ✖
+            </button>
+
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Contact Support
+            </h2>
+            <p className="text-gray-600 mb-4">
+              Reach out to our support team for assistance:
+            </p>
+            <div className="text-left">
+              <p className="text-gray-800 mb-2">
+                <strong>Email:</strong> <a href="mailto:support@fittr.com" className="text-brand-green-500 hover:underline">support@fittr.com</a>
+              </p>
+              <p className="text-gray-800">
+                <strong>Phone:</strong> <a href="tel:08888003430" className="text-brand-green-500 hover:underline">08888003430</a>
+              </p>
+            </div>
           </div>
         </div>
       )}
