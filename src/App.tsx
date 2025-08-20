@@ -42,7 +42,7 @@ function App() {
 
       {/* Email Signup Popup Modal */}
       {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 sm:p-6">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center relative">
             <button
               onClick={() => setShowPopup(false)}
@@ -80,7 +80,7 @@ function App() {
 
       {/* Support Popup Modal */}
       {showSupportPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 sm:p-6">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 text-center relative">
             <button
               onClick={() => setShowSupportPopup(false)}
