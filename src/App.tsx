@@ -31,12 +31,12 @@ function App() {
       <Footer />
 
       {/* Sticky CTA Bar */}
-      <div className="fixed bottom-4 right-4 z-40">
+      <div className="fixed bottom-6 right-6 z-40">
         <button 
           onClick={() => setShowSupportPopup(true)}
           className="bg-brand-green-500 hover:bg-brand-green-400 text-white px-6 py-3 rounded-full font-bold shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
         >
-          💬 need support?
+          💬 Need Support?
         </button>
       </div>
 

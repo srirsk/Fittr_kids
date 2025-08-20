@@ -33,12 +33,8 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-100' 
-        : 'bg-transparent'
-    }`}>
-      <div className="container mx-auto px-6">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-100' : 'bg-transparent'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <button 
@@ -50,9 +46,7 @@ const Navbar: React.FC = () => {
             </div>
             <h1 className="text-2xl md:text-3xl font-black">
               <span className="text-brand-green-500">FITTR</span>
-              <span className={`transition-colors duration-300 ${
-                isScrolled ? 'text-black' : 'text-white'
-              }`}> Kids</span>
+              <span className={`transition-colors duration-300 ${isScrolled ? 'text-black' : 'text-white'}`}> Kids</span>
             </h1>
           </button>
 
@@ -62,11 +56,7 @@ const Navbar: React.FC = () => {
               <button
                 key={index}
                 onClick={item.action}
-                className={`font-semibold transition-all duration-300 hover:scale-105 px-4 py-2 rounded-full ${
-                  isScrolled 
-                    ? 'text-black hover:text-brand-green-500 hover:bg-gray-100' 
-                    : 'text-white hover:text-brand-green-300 hover:bg-white/10'
-                }`}
+                className={`font-semibold transition-all duration-300 hover:scale-105 px-4 py-2 rounded-full ${isScrolled ? 'text-black hover:text-brand-green-500 hover:bg-gray-100' : 'text-white hover:text-brand-green-300 hover:bg-white/10'}`}
               >
                 {item.label}
               </button>
@@ -79,20 +69,14 @@ const Navbar: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 rounded-full transition-all duration-300 ${
-              isScrolled 
-                ? 'text-black hover:bg-gray-100' 
-                : 'text-white hover:bg-white/10'
-            }`}
+            className={`md:hidden p-2 rounded-full transition-all duration-300 ${isScrolled ? 'text-black hover:bg-gray-100' : 'text-white hover:bg-white/10'}`}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? 'max-h-96 pb-6' : 'max-h-0'
-        }`}>
+        <div className={`md:hidden transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}>
           <div className="bg-white/95 backdrop-blur-lg rounded-2xl p-6 mt-4 shadow-xl border border-gray-100">
             {navItems.map((item, index) => (
               <button

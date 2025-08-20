@@ -4,7 +4,7 @@ import { Heart, Mail, Phone, Facebook, Instagram, Youtube, Linkedin } from 'luci
 const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white py-16">
-      <div className="container mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Logo and Description */}
           <div className="md:col-span-2">
