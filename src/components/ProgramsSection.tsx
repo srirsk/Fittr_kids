@@ -92,6 +92,7 @@ const ProgramsSection: React.FC = () => {
         'Email support',
       ],
       buttonColor: 'bg-brand-green-500 hover:bg-brand-green-400',
+      borderColor: 'border-brand-green-500',
       buttonText: 'Enroll Now',
       price: 10500,
       discount: 8500,
@@ -110,6 +111,7 @@ const ProgramsSection: React.FC = () => {
         'Access to session calendar',
       ],
       buttonColor: 'bg-black hover:bg-gray-800',
+      borderColor: 'border-black',
       buttonText: 'Join Group Program',
       price: 14500,
       discount: 11500,
@@ -128,6 +130,7 @@ const ProgramsSection: React.FC = () => {
         'Parent coaching + involvement tips',
       ],
       buttonColor: 'bg-gray-600 hover:bg-gray-700',
+      borderColor: 'border-gray-600',
       buttonText: 'Book Personal Plan',
       price: 22000,
       discount: 18000,
@@ -150,7 +153,7 @@ const ProgramsSection: React.FC = () => {
           {programs.map((program, index) => (
             <div
               key={index}
-              className="bg-white rounded-3xl p-8 shadow-xl border-2 border-brand-green-500 transform hover:scale-105 transition-all duration-300 relative flex flex-col"
+              className={`bg-white rounded-3xl p-8 shadow-xl border-2 ${program.borderColor} transform hover:scale-105 transition-all duration-300 relative flex flex-col`}
             >
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                 <div
