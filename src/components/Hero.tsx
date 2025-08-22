@@ -12,13 +12,6 @@ const Hero: React.FC = () => {
         backgroundRepeat: "no-repeat, no-repeat",
       }}
     >
-      {/* --- Heading --- */}
-      <div className="mt-32 w-full flex flex-col items-center px-4">
-        <p className="text-2xl md:text-3xl text-white drop-shadow-md mb-6 whitespace-normal md:whitespace-nowrap font-['Bubblegum_Sans']">
-          Fun fitness and nutrition programs designed for kids and parents together.
-        </p>
-      </div>
-
       {/* --- Mobile (Arch Layout) --- */}
       <div className="sm:hidden w-full flex justify-center mt-8 relative arch-container">
         <div className="arch-row flex gap-4 relative">
@@ -101,10 +94,10 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* --- Bottom Section (Subheading + Buttons) --- */}
+      {/* --- Bottom Section (Heading + Buttons) --- */}
       <div className="absolute bottom-12 w-full flex flex-col items-center px-4">
-        <p className="text-base md:text-lg text-white drop-shadow-md mb-6 whitespace-normal md:whitespace-nowrap font-['Delius_Swash_Caps']">
-          Fittr Kids is powered by Fittr, trusted by 3M+ people worldwide. Certified INFS coaches now guiding the next generation.
+        <p className="text-xl md:text-2xl text-white drop-shadow-md mb-6 whitespace-normal md:whitespace-nowrap font-['Bubblegum_Sans']">
+          Fun fitness and nutrition programs designed for kids and parents together.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
@@ -112,6 +105,13 @@ const Hero: React.FC = () => {
             Explore program 💪
           </button>
         </div>
+      </div>
+
+      {/* --- Subheading (Bottom Left) --- */}
+      <div className="absolute bottom-12 left-4 w-2/3 sm:w-1/4 px-4 text-left">
+        <p className="text-base md:text-lg text-white drop-shadow-md whitespace-normal font-['Delius_Swash_Caps']">
+          Fittr Kids is powered by Fittr, trusted by 3M+ people worldwide. Certified INFS coaches now guiding the next generation.
+        </p>
       </div>
 
       <style jsx>{`
