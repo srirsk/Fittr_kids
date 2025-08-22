@@ -12,8 +12,15 @@ const Hero: React.FC = () => {
         backgroundRepeat: "no-repeat, no-repeat",
       }}
     >
+      {/* --- Heading --- */}
+      <div className="mt-32 w-full flex flex-col items-center px-4">
+        <p className="text-2xl md:text-3xl text-white drop-shadow-md mb-6 whitespace-normal md:whitespace-nowrap font-['Bubblegum_Sans']">
+          Fun fitness and nutrition programs designed for kids and parents together.
+        </p>
+      </div>
+
       {/* --- Mobile (Arch Layout) --- */}
-      <div className="sm:hidden w-full flex justify-center mt-32 relative arch-container">
+      <div className="sm:hidden w-full flex justify-center mt-8 relative arch-container">
         <div className="arch-row flex gap-4 relative">
           {/* Card 1 */}
           <div className="glass-card-portrait">
@@ -94,25 +101,22 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* --- Bottom Section (Subtitle + Buttons) --- */}
+      {/* --- Bottom Section (Subheading + Buttons) --- */}
       <div className="absolute bottom-12 w-full flex flex-col items-center px-4">
-        <p className="text-lg md:text-xl text-white drop-shadow-md mb-6 whitespace-normal md:whitespace-nowrap">
-  Fun fitness and nutrition programs designed for kids and parents together.
-</p>
+        <p className="text-base md:text-lg text-white drop-shadow-md mb-6 whitespace-normal md:whitespace-nowrap font-['Delius_Swash_Caps']">
+          Fittr Kids is powered by Fittr, trusted by 3M+ people worldwide. Certified INFS coaches now guiding the next generation.
+        </p>
 
         <div className="flex flex-col sm:flex-row gap-4">
           <button className="bg-[#11A663] text-white px-8 py-4 rounded-full font-bold text-lg shadow-md hover:scale-105 transition-transform">
-            Start Your Plan 💪
-          </button>
-          <button className="bg-white text-[#11A663] px-8 py-4 rounded-full font-bold text-lg shadow-md border-2 border-[#11A663] hover:scale-105 transition-transform">
-            Watch a Session 🎥
+            Explore program 💪
           </button>
         </div>
       </div>
 
       <style jsx>{`
-        /* Import Rubik font */
-        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+        /* Import Rubik, Bubblegum Sans, and Delius Swash Caps fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&family=Bubblegum+Sans&family=Delius+Swash+Caps&display=swap');
 
         /* Floating Animations */
         @keyframes float-slow {
