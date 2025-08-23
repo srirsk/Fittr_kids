@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* --- Bottom Section (Heading + Subheading + Buttons) --- */}
-      <div className="absolute bottom-12 sm:bottom-12 w-full flex flex-col items-center px-4">
+      <div className="absolute bottom-8 sm:bottom-12 w-full flex flex-col items-center px-4">
         <p className="text-xl md:text-2xl text-white drop-shadow-md mb-6 whitespace-normal md:whitespace-nowrap font-['Bubblegum_Sans']">
           Fun fitness and nutrition programs designed for kids and parents together.
         </p>
