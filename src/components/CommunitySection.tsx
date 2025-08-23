@@ -10,7 +10,6 @@ const CommunitySection: React.FC = () => {
     e.preventDefault();
     if (email.trim()) {
       setIsSubmitted(true);
-      // Here you would typically send the email to your backend
       setTimeout(() => {
         setIsSubmitted(false);
         setEmail('');
@@ -22,10 +21,19 @@ const CommunitySection: React.FC = () => {
     <section id="community" className="py-20 bg-brand-green-500">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
+          {/* Title with Bubblegum Sans */}
+          <h2
+            className="text-4xl md:text-5xl mb-6 text-white"
+            style={{ fontFamily: '"Bubblegum Sans", cursive' }}
+          >
             Join the <span className="text-white">Fittr Family</span> 🌟
           </h2>
-          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
+
+          {/* Subtitle with Delius Swash Caps */}
+          <p
+            className="text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed"
+            style={{ fontFamily: '"Delius Swash Caps", cursive' }}
+          >
             Be the first to know about new programs, get exclusive tips, and connect with other families on their wellness journey!
           </p>
           
@@ -34,7 +42,8 @@ const CommunitySection: React.FC = () => {
               <form onSubmit={handleSubmit} className="max-w-md mx-auto">
                 <div className="flex flex-col sm:flex-row gap-4 mb-6">
                   <div className="relative flex-1">
-                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    {/* Changed the icon color to match placeholder text */}
+                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/60" />
                     <input
                       type="email"
                       value={email}
@@ -54,13 +63,19 @@ const CommunitySection: React.FC = () => {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <span className="text-white/80">Or join our community:</span>
+                  <span
+                    className="text-white/80"
+                    style={{ fontFamily: '"Delius Swash Caps", cursive' }}
+                  >
+                    Or join our community:
+                  </span>
                   <div className="flex gap-4">
                     <a
                       href="https://www.facebook.com/groups/squatsjc"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold transform hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                      style={{ fontFamily: '"Delius Swash Caps", cursive' }}
                     >
                       <FaFacebook className="w-5 h-5" />
                       Facebook
@@ -73,8 +88,16 @@ const CommunitySection: React.FC = () => {
                 <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-4xl">✨</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">Welcome to the Family!</h3>
-                <p className="text-white/90">
+                <h3
+                  className="text-2xl font-bold text-white mb-4"
+                  style={{ fontFamily: '"Bubblegum Sans", cursive' }}
+                >
+                  Welcome to the Family!
+                </h3>
+                <p
+                  className="text-white/90"
+                  style={{ fontFamily: '"Delius Swash Caps", cursive' }}
+                >
                   Check your inbox for a welcome email with next steps and exclusive content!
                 </p>
               </div>

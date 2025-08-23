@@ -26,21 +26,29 @@ const VideoSection: React.FC = () => {
   ];
 
   const handleYouTubeClick = () => {
-    window.open('https://www.youtube.com/@fittrkids7942/videos', '_blank', 'noopener,noreferrer');
+    window.open(
+      'https://www.youtube.com/@fittrkids7942/videos',
+      '_blank',
+      'noopener,noreferrer'
+    );
   };
 
   return (
     <section id="videos" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-800">
+          {/* Title with Bubblegum Sans */}
+          <h2
+            className="text-4xl md:text-5xl font-black mb-6 text-gray-800"
+            style={{ fontFamily: '"Bubblegum Sans", cursive' }}
+          >
             Video Library <span className="text-brand-red-500">Preview</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Get a taste of our fun and educational content for kids and parents
           </p>
         </div>
-        
+
         {/* Thumbnails Grid */}
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
           {videos.map((video, index) => (
@@ -72,7 +80,7 @@ const VideoSection: React.FC = () => {
             </div>
           ))}
         </div>
-        
+
         {/* Visit channel button */}
         <div className="text-center">
           <button
