@@ -7,6 +7,7 @@ import PlansSection from './components/PlansSection';
 import VideoSection from './components/VideoSection';
 import CommunitySection from './components/CommunitySection';
 import Footer from './components/Footer';
+import FittrTrustBanner from './components/FittrTrustBanner';
 
 function App() {
   const [showPopup, setShowPopup] = useState(true);
@@ -25,6 +26,7 @@ function App() {
       <Navbar />
       <Hero />
       <AboutSection />
+      <FittrTrustBanner />
       <ProgramsSection />
       <VideoSection />
       <CommunitySection />
