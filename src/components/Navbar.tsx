@@ -46,12 +46,12 @@ const Navbar: React.FC = () => {
             <img 
               src={LogoImage}
               alt="FITTR Kids Logo"
-              className={`h-10 w-auto group-hover:scale-110 transition-transform duration-300 ${isScrolled ? '' : 'filter invert'}`}
+              className={`h-10 w-auto transition-transform duration-300 ${isScrolled ? '' : 'filter invert'}`}
             />
             <img 
               src={SecondaryImage}
               alt="Secondary Image"
-              className={`h-12 w-auto group-hover:scale-110 transition-transform duration-300 ${isScrolled ? '' : 'filter invert'} md:static absolute left-1/2 transform -translate-x-1/2 md:transform-none`}
+              className={`h-12 w-auto transition-transform duration-300 ${isScrolled ? '' : 'filter invert'} md:static absolute left-1/2 transform -translate-x-1/2 md:transform-none`}
             />
           </button>
 
