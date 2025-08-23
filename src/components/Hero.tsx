@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
       }}
     >
       {/* --- Mobile (Arch Layout) --- */}
-      <div className="sm:hidden w-full flex justify-center mt-32 relative arch-container">
+      <div className="sm:hidden w-full flex justify-center mt-28 relative arch-container">
         <div className="arch-row flex gap-4 relative">
           {/* Card 1 */}
           <div className="glass-card-portrait">
