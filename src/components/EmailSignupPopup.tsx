@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import bannerImg from "./images/ChatGPT Image Aug 17, 2025, 10_54_38 AM.png"; // 👈 adjust path to your local image
+import bannerImg from "./images/emailpic2.png"; // 👈 adjust path to your local image
 
 interface EmailSignupPopupProps {
   isOpen: boolean;
