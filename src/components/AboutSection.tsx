@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Zap } from 'lucide-react';
 import '@fontsource/bubblegum-sans'; // Install: npm i @fontsource/bubblegum-sans
+import '@fontsource/rubik'; // Install: npm i @fontsource/rubik
 
 const AboutSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -82,6 +83,7 @@ const AboutSection: React.FC = () => {
       id="about"
       ref={sectionRef}
       className="py-20 bg-white relative overflow-hidden"
+      style={{ fontFamily: '"Rubik", sans-serif' }}
       onMouseMove={handleMouseMove}
     >
       <div className="container mx-auto px-6 relative z-10">

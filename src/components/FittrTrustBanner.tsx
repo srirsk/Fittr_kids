@@ -1,6 +1,7 @@
 import React from "react";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import "@fontsource/bubblegum-sans"; // npm i @fontsource/bubblegum-sans
+import "@fontsource/rubik"; // npm i @fontsource/rubik
 
 /**
  * FittrTrustBanner (Kids theme version)
@@ -10,6 +11,7 @@ const FittrTrustBanner: React.FC = () => {
     <section
       aria-labelledby="fittr-trust-title"
       className="mb-12"
+      style={{ fontFamily: '"Rubik", sans-serif' }}
     >
       <div className="container mx-auto px-6 sm:px-0">
         <div className="max-w-4xl mx-auto sm:max-w-3xl">

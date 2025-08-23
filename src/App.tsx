@@ -9,13 +9,14 @@ import CommunitySection from './components/CommunitySection';
 import Footer from './components/Footer';
 import FittrTrustBanner from './components/FittrTrustBanner';
 import EmailSignupPopup from './components/EmailSignupPopup';
+import '@fontsource/rubik'; // npm i @fontsource/rubik
 
 function App() {
   const [showPopup, setShowPopup] = useState(true);
   const [showSupportPopup, setShowSupportPopup] = useState(false);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ fontFamily: '"Rubik", sans-serif' }}>
       <Navbar />
       <Hero />
       <AboutSection />

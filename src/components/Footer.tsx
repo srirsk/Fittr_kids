@@ -2,10 +2,11 @@ import React from 'react';
 import { Mail, Phone, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
 import LogoImage from './images/fittrlogo.png'; // Adjust the path to your logo image
 import SecondaryImage from './images/kidslogo.png'; // Adjust the path to your secondary image
+import '@fontsource/rubik'; // npm i @fontsource/rubik
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-white py-16">
+    <footer className="bg-black text-white py-16" style={{ fontFamily: '"Rubik", sans-serif' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Logo and Description */}
