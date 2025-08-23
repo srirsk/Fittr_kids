@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import LogoImage from './images/fittrlogo.png'; // Adjust the path to your logo image
+import SecondaryImage from './images/kidslogo.png'; // Adjust the path to your secondary image
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,19 +37,22 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg border-b border-gray-100' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-20 relative">
+          {/* Logo and Secondary Image */}
           <button 
             onClick={scrollToTop}
             className="flex items-center gap-3 group"
           >
-            <div className="bg-brand-green-500 rounded-full p-2 group-hover:scale-110 transition-transform duration-300">
-              <Heart className="w-6 h-6 text-white" />
-            </div>
-            <h1 className="text-2xl md:text-3xl font-black">
-              <span className="text-brand-green-500">FITTR</span>
-              <span className={`transition-colors duration-300 ${isScrolled ? 'text-black' : 'text-white'}`}> Kids</span>
-            </h1>
+            <img 
+              src={LogoImage}
+              alt="FITTR Kids Logo"
+              className={`h-10 w-auto group-hover:scale-110 transition-transform duration-300 ${isScrolled ? '' : 'filter invert'}`}
+            />
+            <img 
+              src={SecondaryImage}
+              alt="Secondary Image"
+              className={`h-12 w-auto group-hover:scale-110 transition-transform duration-300 ${isScrolled ? '' : 'filter invert'} md:static absolute left-1/2 transform -translate-x-1/2 md:transform-none`}
+            />
           </button>
 
           {/* Desktop Navigation */}
