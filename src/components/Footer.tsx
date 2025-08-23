@@ -22,9 +22,12 @@ const Footer: React.FC = () => {
                 className="h-12 w-auto"
               />
             </div>
-            <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
+            <p className="text-gray-300 leading-relaxed mb-4 max-w-md">
               Building stronger, healthier habits for children through fun fitness and simple nutrition. 
               Making wellness part of everyday family life.
+            </p>
+            <p className="text-gray-400 text-sm mb-6 max-w-md">
+              Fittr Kids is an initiative by <span className="font-semibold text-white">Fittr</span>, India’s largest online fitness and nutrition platform.
             </p>
             <div className="flex gap-4">
               <a href="https://www.facebook.com/Fittrwithsquats" className="bg-gray-800 hover:bg-brand-green-500 p-3 rounded-full transition-colors duration-300">
@@ -60,7 +63,16 @@ const Footer: React.FC = () => {
               <li><a href="#programs" className="text-gray-300 hover:text-white transition-colors duration-300">Programs</a></li>
               <li><a href="#videos" className="text-gray-300 hover:text-white transition-colors duration-300">YouTube</a></li>
               <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">About Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors duration-300">Contact</a></li>
+              <li>
+                <a 
+                  href="https://fittr.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-300 hover:text-white transition-colors duration-300"
+                >
+                  FITTR
+                </a>
+              </li>
             </ul>
           </div>
           

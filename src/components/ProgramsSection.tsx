@@ -194,6 +194,17 @@ const ProgramsSection: React.FC = () => {
 
               <div className="mt-auto">
                 <div className="text-center mb-4">
+                  <div
+                    className={`inline-block px-4 py-1 rounded-full text-sm font-semibold italic text-white ${
+                      program.badgeColor === 'bg-brand-green-500'
+                        ? 'bg-brand-green-500'
+                        : program.badgeColor === 'bg-black'
+                        ? 'bg-black'
+                        : 'bg-gray-600'
+                    } mb-3`}
+                  >
+                    3-Month Program
+                  </div>
                   <p
                     className="text-gray-500 line-through text-lg"
                     aria-label={`Original price ${program.price.toLocaleString()} rupees`}
