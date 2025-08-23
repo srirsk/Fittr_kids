@@ -1,29 +1,107 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Youtube, Play, X } from 'lucide-react';
+import axios from 'axios';
+
+interface Video {
+  title: string;
+  thumbnail: string;
+  duration: string;
+  url: string;
+}
 
 const VideoSection: React.FC = () => {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [videos, setVideos] = useState<Video[]>([]);
+  const API_KEY = import.meta.env.VITE_YOUTUBE_API_KEY; // For Vite
+  // const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY; // Uncomment for Create React App
+  const videoIds = ['aX-UZg9j-uo', 'bGrrF6VoyWU', 'rpG6R-sOolE'];
 
-  const videos = [
-    {
-      title: 'Fittr Kids - Healthy Eating for Kids | Nutrition Guide',
-      thumbnail: 'https://img.youtube.com/vi/aX-UZg9j-uo/mqdefault.jpg',
-      duration: '5:30',
-      url: 'https://www.youtube.com/embed/aX-UZg9j-uo',
-    },
-    {
-      title: 'Fittr Kids - Fun Morning Exercise Routine for Kids',
-      thumbnail: 'https://img.youtube.com/vi/bGrrF6VoyWU/mqdefault.jpg',
-      duration: '6:15',
-      url: 'https://www.youtube.com/embed/bGrrF6VoyWU',
-    },
-    {
-      title: 'Fittr Kids - Mindfulness and Relaxation for Kids',
-      thumbnail: 'https://img.youtube.com/vi/rpG6R-sOolE/mqdefault.jpg',
-      duration: '4:45',
-      url: 'https://www.youtube.com/embed/rpG6R-sOolE',
-    },
-  ];
+  // Function to format ISO 8601 duration (e.g., PT5M30S) to MM:SS
+  const formatDuration = (isoDuration: string): string => {
+    const match = isoDuration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+    const hours = match?.[1] ? parseInt(match[1].replace('H', '')) : 0;
+    const minutes = match?.[2] ? parseInt(match[2].replace('M', '')) : 0;
+    const seconds = match?.[3] ? parseInt(match[3].replace('S', '')) : 0;
+    return `${hours ? hours + ':' : ''}${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
+
+  // Fetch video details from YouTube API
+  useEffect(() => {
+    if (!API_KEY) {
+      console.error('YouTube API key is missing. Please set VITE_YOUTUBE_API_KEY in .env');
+      // Fallback to static data if API key is missing
+      setVideos([
+        {
+          title: 'Fittr Kids - Healthy Eating for Kids | Nutrition Guide',
+          thumbnail: 'https://img.youtube.com/vi/aX-UZg9j-uo/mqdefault.jpg',
+          duration: '5:30',
+          url: 'https://www.youtube.com/embed/aX-UZg9j-uo',
+        },
+        {
+          title: 'Fittr Kids - Fun Morning Exercise Routine for Kids',
+          thumbnail: 'https://img.youtube.com/vi/bGrrF6VoyWU/mqdefault.jpg',
+          duration: '6:15',
+          url: 'https://www.youtube.com/embed/bGrrF6VoyWU',
+        },
+        {
+          title: 'Fittr Kids - Mindfulness and Relaxation for Kids',
+          thumbnail: 'https://img.youtube.com/vi/rpG6R-sOolE/mqdefault.jpg',
+          duration: '4:45',
+          url: 'https://www.youtube.com/embed/rpG6R-sOolE',
+        },
+      ]);
+      return;
+    }
+
+    const fetchVideos = async () => {
+      try {
+        const response = await axios.get(
+          `https://www.googleapis.com/youtube/v3/videos`,
+          {
+            params: {
+              part: 'snippet,contentDetails',
+              id: videoIds.join(','),
+              key: API_KEY,
+            },
+          }
+        );
+
+        const fetchedVideos = response.data.items.map((item: any) => ({
+          title: item.snippet.title,
+          thumbnail: item.snippet.thumbnails.medium.url,
+          duration: formatDuration(item.contentDetails.duration),
+          url: `https://www.youtube.com/embed/${item.id}`,
+        }));
+
+        setVideos(fetchedVideos);
+      } catch (error) {
+        console.error('Error fetching YouTube videos:', error);
+        // Fallback to static data if API fails
+        setVideos([
+          {
+            title: 'Fittr Kids - Healthy Eating for Kids | Nutrition Guide',
+            thumbnail: 'https://img.youtube.com/vi/aX-UZg9j-uo/mqdefault.jpg',
+            duration: '5:30',
+            url: 'https://www.youtube.com/embed/aX-UZg9j-uo',
+          },
+          {
+            title: 'Fittr Kids - Fun Morning Exercise Routine for Kids',
+            thumbnail: 'https://img.youtube.com/vi/bGrrF6VoyWU/mqdefault.jpg',
+            duration: '6:15',
+            url: 'https://www.youtube.com/embed/bGrrF6VoyWU',
+          },
+          {
+            title: 'Fittr Kids - Mindfulness and Relaxation for Kids',
+            thumbnail: 'https://img.youtube.com/vi/rpG6R-sOolE/mqdefault.jpg',
+            duration: '4:45',
+            url: 'https://www.youtube.com/embed/rpG6R-sOolE',
+          },
+        ]);
+      }
+    };
+
+    fetchVideos();
+  }, [API_KEY]);
 
   const handleYouTubeClick = () => {
     window.open(
@@ -37,7 +115,6 @@ const VideoSection: React.FC = () => {
     <section id="videos" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          {/* Title with Bubblegum Sans */}
           <h2
             className="text-4xl md:text-5xl font-black mb-6 text-gray-800"
             style={{ fontFamily: '"Bubblegum Sans", cursive' }}
@@ -49,7 +126,6 @@ const VideoSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Thumbnails Grid */}
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
           {videos.map((video, index) => (
             <div
@@ -81,7 +157,6 @@ const VideoSection: React.FC = () => {
           ))}
         </div>
 
-        {/* Visit channel button */}
         <div className="text-center">
           <button
             onClick={handleYouTubeClick}
@@ -93,7 +168,6 @@ const VideoSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Cute Popup Modal */}
       {activeVideo && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
           <div className="bg-white rounded-3xl shadow-2xl relative w-[90%] md:w-[70%] lg:w-[60%] p-4 border-4 border-pink-300">
