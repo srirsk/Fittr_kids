@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
       }}
     >
       {/* --- Mobile (Arch Layout) --- */}
-      <div className="sm:hidden w-full flex justify-center mt-8 relative arch-container">
+      <div className="sm:hidden w-full flex justify-center mt-32 relative arch-container">
         <div className="arch-row flex gap-4 relative">
           {/* Card 1 */}
           <div className="glass-card-portrait">
@@ -94,11 +94,18 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* --- Bottom Section (Heading + Buttons) --- */}
-      <div className="absolute bottom-12 w-full flex flex-col items-center px-4">
+      {/* --- Bottom Section (Heading + Subheading + Buttons) --- */}
+      <div className="absolute bottom-16 sm:bottom-12 w-full flex flex-col items-center px-4">
         <p className="text-xl md:text-2xl text-white drop-shadow-md mb-6 whitespace-normal md:whitespace-nowrap font-['Bubblegum_Sans']">
           Fun fitness and nutrition programs designed for kids and parents together.
         </p>
+
+        {/* --- Subheading (Mobile: Full Width, Between Heading and Button) --- */}
+        <div className="sm:hidden w-full px-4 text-center mb-6">
+          <p className="text-base text-white drop-shadow-md whitespace-normal font-['Delius_Swash_Caps']">
+            Fittr Kids is powered by Fittr, trusted by 3M+ people worldwide. Certified <span className="font-['Rubik']">INFS</span> coaches now guiding the next generation.
+          </p>
+        </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
           <button className="bg-[#11A663] text-white px-8 py-4 rounded-full font-bold text-lg shadow-md hover:scale-105 transition-transform">
@@ -107,10 +114,10 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* --- Subheading (Bottom Left) --- */}
-      <div className="absolute bottom-12 left-4 w-2/3 sm:w-1/4 px-4 text-left">
+      {/* --- Subheading (Desktop: Bottom Left) --- */}
+      <div className="hidden sm:block absolute bottom-12 left-4 w-2/3 sm:w-1/4 px-4 text-left">
         <p className="text-base md:text-lg text-white drop-shadow-md whitespace-normal font-['Delius_Swash_Caps']">
-          Fittr Kids is powered by Fittr, trusted by 3M+ people worldwide. Certified INFS coaches now guiding the next generation.
+          Fittr Kids is powered by Fittr, trusted by 3M+ people worldwide. Certified <span className="font-['Rubik']">INFS</span> coaches now guiding the next generation.
         </p>
       </div>
 
