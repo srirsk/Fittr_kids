@@ -1,5 +1,7 @@
 import React from 'react';
-import { Heart, Mail, Phone, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Mail, Phone, Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
+import LogoImage from './images/fittrlogo.png'; // Adjust the path to your logo image
+import SecondaryImage from './images/kidslogo.png'; // Adjust the path to your secondary image
 
 const Footer: React.FC = () => {
   return (
@@ -9,12 +11,16 @@ const Footer: React.FC = () => {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="bg-brand-green-500 rounded-full p-3">
-                <Heart className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-3xl font-black text-white">
-                <span className="text-brand-green-400">FITTR</span> Kids
-              </h3>
+              <img 
+                src={LogoImage}
+                alt="FITTR Logo"
+                className="h-10 w-auto filter invert"
+              />
+              <img 
+                src={SecondaryImage}
+                alt="Kids Logo"
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
               Building stronger, healthier habits for children through fun fitness and simple nutrition. 
