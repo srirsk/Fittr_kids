@@ -182,11 +182,14 @@ const Hero: React.FC = () => {
           -webkit-backdrop-filter: blur(13px);
           border: 1px solid rgba(255, 255, 255, 0.25);
           overflow: hidden;
+          /* Add z-index for mobile only */
+          z-index: 1;
         }
         @media (min-width: 640px) {
           .glass-card-portrait {
             width: 140px;
             height: calc(140px * 4 / 3);
+            z-index: auto; /* Reset z-index on larger screens */
           }
         }
 
