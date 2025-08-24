@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
             <img
               src={LogoImage}
               alt="FITTR Kids Logo"
-              className={`h-10 w-auto transition-transform duration-300 ${
+              className={`h-12 w-auto transition-transform duration-300 ${
                 isScrolled ? '' : 'filter invert'
               }`}
             />
