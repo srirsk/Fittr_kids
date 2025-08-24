@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import FittrTrustBanner from './components/FittrTrustBanner';
 import EmailSignupPopup from './components/EmailSignupPopup';
 import '@fontsource/rubik'; // npm i @fontsource/rubik
+import DoctorVideoSection from './components/DoctorVideoSection';
 
 function App() {
   const [showPopup, setShowPopup] = useState(true);
@@ -20,6 +21,7 @@ function App() {
       <Navbar />
       <Hero />
       <AboutSection />
+      <DoctorVideoSection />
       <FittrTrustBanner />
       <ProgramsSection />
       <VideoSection />

@@ -10,10 +10,10 @@ const FittrTrustBanner: React.FC = () => {
   return (
     <section
       aria-labelledby="fittr-trust-title"
-      className="mb-12"
+      className="py-16 px-6 sm:px-0" // 🔑 adds top & bottom spacing
       style={{ fontFamily: '"Rubik", sans-serif' }}
     >
-      <div className="container mx-auto px-6 sm:px-0">
+      <div className="container mx-auto">
         <div className="max-w-4xl mx-auto sm:max-w-3xl">
           <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-gray-50 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.01]">
             {/* Powered by band */}
@@ -29,7 +29,7 @@ const FittrTrustBanner: React.FC = () => {
             </div>
 
             {/* Content */}
-            <div className="px-6 pb-6 pt-10 md:px-8 md:pt-12">
+            <div className="px-6 pb-8 pt-12 md:px-8 md:pt-14">
               <h2
                 id="fittr-trust-title"
                 className="text-2xl md:text-3xl font-black text-gray-800 mb-6 text-center"
