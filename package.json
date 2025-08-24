@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@fontsource/bubblegum-sans": "^5.2.6",
+    "@fontsource/inter": "^5.2.6",
+    "@fontsource/poppins": "^5.2.6",
     "@fontsource/rubik": "^5.2.6",
     "@lottiefiles/dotlottie-react": "^0.15.0",
     "axios": "^1.11.0",
