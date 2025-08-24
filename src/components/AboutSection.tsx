@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Zap } from 'lucide-react';
-import '@fontsource/bubblegum-sans'; // Install: npm i @fontsource/bubblegum-sans
-import '@fontsource/rubik'; // Install: npm i @fontsource/rubik
+import '@fontsource/bubblegum-sans';
+import '@fontsource/rubik';
 
 const AboutSection: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -86,6 +86,24 @@ const AboutSection: React.FC = () => {
       style={{ fontFamily: '"Rubik", sans-serif' }}
       onMouseMove={handleMouseMove}
     >
+      <style>
+        {`
+          .glass-marble::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 30%;
+            height: 30%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+          }
+          .glass-marble:hover::before {
+            transform: scale(1.2) translate(10%, 10%);
+          }
+        `}
+      </style>
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Disclaimer */}
@@ -156,7 +174,14 @@ const AboutSection: React.FC = () => {
                     ))}
 
                   <div
-                    className={`bg-${feature.color}-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 relative group-hover:animate-pulse transition-all duration-300 group-hover:scale-125 group-hover:bg-${feature.color}-600`}
+                    className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 relative group-hover:animate-pulse transition-all duration-300 group-hover:scale-125 glass-marble`}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.15)',
+                      backdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(255, 255, 255, 0.4)',
+                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.7)',
+                      backgroundImage: `radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(200, 200, 200, 0.3) 50%, rgba(150, 150, 150, 0.4) 70%)`,
+                    }}
                   >
                     <span className="text-2xl group-hover:scale-110 transition-transform duration-300">
                       {feature.emoji}
@@ -194,53 +219,64 @@ const AboutSection: React.FC = () => {
 
           {/* Why it Matters Cards */}
           <div className="grid md:grid-cols-3 gap-8">
-            {whyItMatters.map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center cursor-pointer transition-all duration-500 hover:shadow-2xl ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-                  } hover:rotate-1 hover:scale-105 relative overflow-hidden group`}
-                  style={{ animationDelay: `${600 + index * 200}ms` }}
-                  onMouseEnter={() => setActiveCard(index)}
-                  onMouseLeave={() => setActiveCard(null)}
-                >
-                  {/* Animated background glow */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-0" />
+            {whyItMatters.map((item, index) => (
+              <div
+                key={index}
+                className={`bg-gray-50 border border-gray-200 rounded-2xl p-8 text-center cursor-pointer transition-all duration-500 hover:shadow-2xl ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                } hover:rotate-1 hover:scale-105 relative overflow-hidden group`}
+                style={{ animationDelay: `${600 + index * 200}ms` }}
+                onMouseEnter={() => setActiveCard(index)}
+                onMouseLeave={() => setActiveCard(null)}
+              >
+                {/* Animated background glow */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12 translate-x-full group-hover:translate-x-0" />
 
-                  <div className="relative mb-4">
-                    <div
-                      className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto bg-${item.color}-100 border-2 border-${item.color}-200 transition-all duration-300 group-hover:scale-125 group-hover:rotate-12 group-hover:bg-${item.color}-200`}
-                    >
-                      <span className="text-3xl group-hover:scale-110 transition-transform duration-300 filter drop-shadow-lg">
-                        {item.emoji}
-                      </span>
-                    </div>
-                    {activeCard === index && (
-                      <div className="absolute inset-0 animate-ping">
-                        <div
-                          className={`w-16 h-16 rounded-full bg-${item.color}-200 opacity-50 mx-auto`}
-                        />
-                      </div>
-                    )}
-                    <Zap
-                      className={`absolute -top-1 -right-1 w-4 h-4 text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-bounce`}
-                    />
-                  </div>
-
-                  <h4 className="font-bold text-lg mb-3 text-black group-hover:text-gray-900 transition-colors duration-300 relative">
-                    {item.title}
-                  </h4>
-                  <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed">
-                    {item.description}
-                  </p>
-
+                <div className="relative mb-4">
                   <div
-                    className={`absolute top-0 right-0 w-8 h-8 bg-${item.color}-200 rounded-bl-full opacity-20 group-hover:opacity-40 transition-opacity duration-300`}
+                    className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto transition-all duration-300 group-hover:scale-125 group-hover:rotate-12 glass-marble`}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.15)',
+                      backdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(255, 255, 255, 0.4)',
+                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.7)',
+                      backgroundImage: `radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2) 50%, ${
+                        item.color === 'brand-green' ? 'rgba(34, 197, 94, 0.3)' : item.color === 'red' ? 'rgba(239, 68, 68, 0.3)' : 'rgba(249, 115, 22, 0.3)'
+                      } 70%)`,
+                    }}
+                  >
+                    <span className="text-3xl group-hover:scale-110 transition-transform duration-300 filter drop-shadow-lg">
+                      {item.emoji}
+                    </span>
+                  </div>
+                  {activeCard === index && (
+                    <div className="absolute inset-0 animate-ping">
+                      <div
+                        className={`w-16 h-16 rounded-full mx-auto`}
+                        style={{
+                          background: 'rgba(255, 255, 255, 0.2)',
+                          backdropFilter: 'blur(5px)',
+                        }}
+                      />
+                    </div>
+                  )}
+                  <Zap
+                    className={`absolute -top-1 -right-1 w-4 h-4 text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-bounce`}
                   />
                 </div>
-              );
-            })}
+
+                <h4 className="font-bold text-lg mb-3 text-black group-hover:text-gray-900 transition-colors duration-300 relative">
+                  {item.title}
+                </h4>
+                <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed">
+                  {item.description}
+                </p>
+
+                <div
+                  className={`absolute top-0 right-0 w-8 h-8 bg-${item.color}-200 rounded-bl-full opacity-20 group-hover:opacity-40 transition-opacity duration-300`}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
