@@ -114,8 +114,8 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* --- Subheading (Desktop: Bottom Left) --- */}
-      <div className="hidden sm:block absolute bottom-12 left-4 w-2/3 sm:w-1/4 px-4 text-left">
+      {/* --- Subheading (Desktop: Bottom Left, Moved Right) --- */}
+      <div className="hidden sm:block absolute bottom-12 left-16 w-2/3 sm:w-1/4 px-4 text-left">
         <p className="text-base md:text-lg text-white drop-shadow-md whitespace-normal font-['Delius_Swash_Caps']">
           Fittr Kids is powered by Fittr, trusted by 3M+ people worldwide. Certified <span className="font-['Rubik']">INFS</span> coaches now guiding the next generation.
         </p>
