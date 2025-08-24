@@ -121,7 +121,10 @@ const VideoSection: React.FC = () => {
           >
             Video Library <span className="text-brand-red-500">Preview</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            style={{ fontFamily: '"Delius Swash Caps", cursive' }}
+          >
             Get a taste of our fun and educational content for kids and parents
           </p>
         </div>
@@ -149,7 +152,10 @@ const VideoSection: React.FC = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold text-black group-hover:text-brand-green-500 transition-colors duration-300">
+                <h3
+                  className="text-lg font-bold text-black group-hover:text-brand-green-500 transition-colors duration-300"
+                  style={{ fontFamily: '"Bubblegum Sans", cursive' }}
+                >
                   {video.title}
                 </h3>
               </div>
@@ -161,6 +167,7 @@ const VideoSection: React.FC = () => {
           <button
             onClick={handleYouTubeClick}
             className="bg-black hover:bg-gray-800 text-white px-12 py-5 rounded-full font-bold text-xl shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3 mx-auto"
+            style={{ fontFamily: '"Bubblegum Sans", cursive' }}
           >
             <Youtube className="w-6 h-6" />
             Visit Our YouTube Channel
